@@ -1,0 +1,13 @@
+<!-- ファイル個別情報 -->
+{% extends "base.html" %}
+{% block content %}
+<form action="/login" method="post">
+    作成済みユーザー user:password=>[suna:suna,o:o,w:w,c:c,h:h,m:m]
+<!-- フォームの入力内容は post メソッドで action に送られる -->
+    <label>名前を入力：<input type="text" size="30" maxlength="100" name="name" placeholder="名前を入力してください"></label>
+    <label>パスワード：<input type="password" size="30" maxlength="100" name="password" placeholder="パスワードも入力してください"></label>
+    <!-- 送られるデータは name 属性で識別するので必須  -->
+    <input type="submit" value="ログイン">
+</form>
+<a href="/regist">アカウント新規登録はこちら</a>
+{% endblock %}
