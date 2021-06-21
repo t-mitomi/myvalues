@@ -1,22 +1,9 @@
 BEGIN TRANSACTION;
-CREATE TABLE IF NOT EXISTS "user" (
-	"id"	INTEGER,
-	"name"	TEXT,
-	"age"	INTEGER,
-	"address"	TEXT,
-	PRIMARY KEY("id" AUTOINCREMENT)
-);
 CREATE TABLE IF NOT EXISTS "users" (
 	"id"	INTEGER,
 	"name"	TEXT,
 	"password"	TEXT,
 	"del_flag"	INTEGER DEFAULT 0,
-	PRIMARY KEY("id" AUTOINCREMENT)
-);
-CREATE TABLE IF NOT EXISTS "task" (
-	"id"	INTEGER,
-	"user_id"	INTEGER,
-	"task"	TEXT,
 	PRIMARY KEY("id" AUTOINCREMENT)
 );
 CREATE TABLE IF NOT EXISTS "values88" (
@@ -27,23 +14,117 @@ CREATE TABLE IF NOT EXISTS "values88" (
 );
 CREATE TABLE IF NOT EXISTS "myselect" (
 	"id"	INTEGER,
-	"user_id"	INTEGER DEFAULT 1,
-	"myselect"	TEXT,
+	"user_id"	INTEGER,
+	"savedate"	TEXT,
+	"del_flag"	Integer DEFAULT 0,
+	"v001"	Integer DEFAULT 0,
+	"v002"	Integer DEFAULT 0,
+	"v003"	Integer DEFAULT 0,
+	"v004"	Integer DEFAULT 0,
+	"v005"	Integer DEFAULT 0,
+	"v006"	Integer DEFAULT 0,
+	"v007"	Integer DEFAULT 0,
+	"v008"	Integer DEFAULT 0,
+	"v009"	Integer DEFAULT 0,
+	"v010"	Integer DEFAULT 0,
+	"v011"	Integer DEFAULT 0,
+	"v012"	Integer DEFAULT 0,
+	"v013"	Integer DEFAULT 0,
+	"v014"	Integer DEFAULT 0,
+	"v015"	Integer DEFAULT 0,
+	"v016"	Integer DEFAULT 0,
+	"v017"	Integer DEFAULT 0,
+	"v018"	Integer DEFAULT 0,
+	"v019"	Integer DEFAULT 0,
+	"v020"	Integer DEFAULT 0,
+	"v021"	Integer DEFAULT 0,
+	"v022"	Integer DEFAULT 0,
+	"v023"	Integer DEFAULT 0,
+	"v024"	Integer DEFAULT 0,
+	"v025"	Integer DEFAULT 0,
+	"v026"	Integer DEFAULT 0,
+	"v027"	Integer DEFAULT 0,
+	"v028"	Integer DEFAULT 0,
+	"v029"	Integer DEFAULT 0,
+	"v030"	Integer DEFAULT 0,
+	"v031"	Integer DEFAULT 0,
+	"v032"	Integer DEFAULT 0,
+	"v033"	Integer DEFAULT 0,
+	"v034"	Integer DEFAULT 0,
+	"v035"	Integer DEFAULT 0,
+	"v036"	Integer DEFAULT 0,
+	"v037"	Integer DEFAULT 0,
+	"v038"	Integer DEFAULT 0,
+	"v039"	Integer DEFAULT 0,
+	"v040"	Integer DEFAULT 0,
+	"v041"	Integer DEFAULT 0,
+	"v042"	Integer DEFAULT 0,
+	"v043"	Integer DEFAULT 0,
+	"v044"	Integer DEFAULT 0,
+	"v045"	Integer DEFAULT 0,
+	"v046"	Integer DEFAULT 0,
+	"v047"	Integer DEFAULT 0,
+	"v048"	Integer DEFAULT 0,
+	"v049"	Integer DEFAULT 0,
+	"v050"	Integer DEFAULT 0,
+	"v051"	Integer DEFAULT 0,
+	"v052"	Integer DEFAULT 0,
+	"v053"	Integer DEFAULT 0,
+	"v054"	Integer DEFAULT 0,
+	"v055"	Integer DEFAULT 0,
+	"v056"	Integer DEFAULT 0,
+	"v057"	Integer DEFAULT 0,
+	"v058"	Integer DEFAULT 0,
+	"v059"	Integer DEFAULT 0,
+	"v060"	Integer DEFAULT 0,
+	"v061"	Integer DEFAULT 0,
+	"v062"	Integer DEFAULT 0,
+	"v063"	Integer DEFAULT 0,
+	"v064"	Integer DEFAULT 0,
+	"v065"	Integer DEFAULT 0,
+	"v066"	Integer DEFAULT 0,
+	"v067"	Integer DEFAULT 0,
+	"v068"	Integer DEFAULT 0,
+	"v069"	Integer DEFAULT 0,
+	"v070"	Integer DEFAULT 0,
+	"v071"	Integer DEFAULT 0,
+	"v072"	Integer DEFAULT 0,
+	"v073"	Integer DEFAULT 0,
+	"v074"	Integer DEFAULT 0,
+	"v075"	Integer DEFAULT 0,
+	"v076"	Integer DEFAULT 0,
+	"v077"	Integer DEFAULT 0,
+	"v078"	Integer DEFAULT 0,
+	"v079"	Integer DEFAULT 0,
+	"v080"	Integer DEFAULT 0,
+	"v081"	Integer DEFAULT 0,
+	"v082"	Integer DEFAULT 0,
+	"v083"	Integer DEFAULT 0,
+	"v084"	Integer DEFAULT 0,
+	"v085"	Integer DEFAULT 0,
+	"v086"	Integer DEFAULT 0,
+	"v087"	Integer DEFAULT 0,
+	"v088"	Integer DEFAULT 0,
+	"v089"	Integer DEFAULT 0,
+	"v090"	Integer DEFAULT 0,
+	"v091"	Integer DEFAULT 0,
+	"v092"	Integer DEFAULT 0,
+	"v093"	Integer DEFAULT 0,
+	"v094"	Integer DEFAULT 0,
+	"v095"	Integer DEFAULT 0,
+	"v096"	Integer DEFAULT 0,
+	"v097"	Integer DEFAULT 0,
+	"v098"	Integer DEFAULT 0,
+	"v099"	Integer DEFAULT 0,
+	"v100"	Integer DEFAULT 0,
 	PRIMARY KEY("id" AUTOINCREMENT)
 );
-INSERT INTO "user" VALUES (1,'くまじろう',10,'九州');
-INSERT INTO "user" VALUES (2,'えべちゃん',70,'江別市');
-INSERT INTO "user" VALUES (3,'かっちゃん',24,'江別市大麻');
 INSERT INTO "users" VALUES (1,'suna','suna',0);
 INSERT INTO "users" VALUES (2,'c','c',0);
 INSERT INTO "users" VALUES (3,'h','h',0);
 INSERT INTO "users" VALUES (4,'m','m',0);
 INSERT INTO "users" VALUES (5,'o','o',0);
 INSERT INTO "users" VALUES (6,'w','w',0);
-INSERT INTO "task" VALUES (1,1,'どうよ？');
-INSERT INTO "task" VALUES (2,2,'どうよ？どぅなの？');
-INSERT INTO "task" VALUES (4,3,'エラーを自力でって、むり～！');
-INSERT INTO "task" VALUES (5,1,'どうよ？どぅなの？教えて！');
 INSERT INTO "values88" VALUES (1,'受容','ありのままの自分を受け入れてもらう',NULL);
 INSERT INTO "values88" VALUES (2,'正確','自分の意見や信念を正しく伝える',NULL);
 INSERT INTO "values88" VALUES (3,'達成','何か重要なことを達成する',NULL);
