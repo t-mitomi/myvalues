@@ -21,4 +21,11 @@ h2.p1_list{
 .btn {
     text-align: center;
     display: block;
+    
+}
+
+.img {
+    text-align: center;
+    width: 193px;
+    height: 130px;
 }
