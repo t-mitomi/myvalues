@@ -62,7 +62,7 @@ def list88():
         value_list=[]
         for row in c.fetchall():
             # リスト内タプルを使いやすく保存し直す
-            value_list.append({"id":row[0],"task":row[1]+":"+row[2]})
+            value_list.append({"id":row[0],"task":row[1],"explanation":row[2]})
         c.close()
         conn.close()
         return render_template("list88.html",value_list=value_list,)
@@ -187,7 +187,7 @@ def value_list():
         # c.execute("Select name from users Where id=?;",(user_id ,))
         # user_name=c.fetchone()[0]
         # c.execute("Select value,explanation From values Where user_id=?;",(user_id ,))
-        c.execute("Select id,value,explanation From values88;")
+        c.execute("Select id,value,explanation From values100;")
         value_list=[]
         # 選択クエリの実行時に１つのレコードを取得する(タプル)
         # user_info=c.fetchone()
@@ -197,7 +197,7 @@ def value_list():
         for row in c.fetchall():
             # print(row)
             # リスト内タプルを使いやすく保存し直す
-            value_list.append({"id":row[0],"task":row[1]+":"+row[2]})
+            value_list.append({"id":row[0],"task":row[1],"explanation":row[2]})
         # 更新クエリはトランザクションをコミットする
         # conn.commit()
         # カーソル終了

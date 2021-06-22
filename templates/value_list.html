@@ -7,11 +7,14 @@
     <tr>
         <td>{{item['id']}}</td>
         <td>{{item['task']}}</td>
+        <td>{{item['explanation']}}</td>
         <td>
-            <input type="text" style="width: 200px;" id="{{item['id']}}" value="0 がデフォルト：直入力用">
-            <input radio="button" style="width: 50px;" name="r{{item['id']}}" value="2point" data-v="2">
-            <input radio="button" style="width: 50px;" name="r{{item['id']}}" value="1point" data-v="1">
-            <input radio="button" style="width: 50px;" name="r{{item['id']}}" value="0point" data-v="0">
+            <input type="text" style="width: 180px;" id="{{item['id']}}" value="0 がデフォルト：直入力用">
+            <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="2">：大変重要 2point</label>
+            <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="1">：重要 1point</label>
+            <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="0">：重要ではない 0point</label>
+            <input type="button" class="up" value="△">
+            <input type="button" class="down" value="▽">
         </td>
     </tr>
     {% endfor %}
