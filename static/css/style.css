@@ -1,0 +1,93 @@
+@charset "UTF-8";
+html {
+	overflow-y: scroll;
+}
+/* リセットCSSの記述です。コピペしていただいて構いません。----- */
+
+body, h1, h2, h3, h4, h5, p, ul, ol, li, dl, dt, dd {
+	margin: 0px;
+	padding: 0px;
+}
+body {
+	background: #fff;
+	text-align: center;
+	font-size: 16px;
+	line-height: 1.4;
+	min-width: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+li {
+	list-style: none;
+}
+a {
+	outline: none;
+	color: inherit;
+	text-decoration: none;
+}
+img {
+	border: 0px;
+	vertical-align: bottom;
+}
+/* --------------------------------------------------- */
+
+/* フォントの指定です。コピペしていただいて構いません。 */
+body {
+	font-family: "Noto Sans Japanese", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", "Meiryo", "HGPｺﾞｼｯｸM", "Osaka", "ＭＳ Ｐゴシック", sans-serif, Century Gothic, Arial;
+}
+
+
+header {
+	height: 60px;
+	background: #F7F8F5;
+	text-align: center;
+	position: fixed;
+	width: 100%;
+    display: flex;
+}
+
+header img{ 
+    height:50px;
+
+}
+
+
+.logo {
+    margin: 5px,0px,0px,5px;
+    padding-top: 5px;
+}
+
+.logoimage{
+    padding-top: 10px;
+}
+
+
+.menu {
+    margin:0 0 0 auto;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+
+    margin: 5px;
+    padding: 5px;
+}
+
+li{
+    margin:10px;
+}
+
+
+
+footer {
+	height: 80px;
+	background: #F7F8F5;
+	width: 100%;
+}
+
+footer .copyright {
+	color: #acacac;
+	font-size: 12px;
+	padding-top: 30px;
+	letter-spacing: 1px;
+}

@@ -11,28 +11,39 @@
     <script src="../static/js/common.js"></script>
 </head>
 <body>
-    <p style="background-color: black;">ここはヘッダーでし
-        <div id="正式版からは削除する">
-            <h3>開発中 flask時 仮名で登録中</h3>
-            <a href="/">/ ルート</a><br>
-            <a href="/index">page1のフラスコ版 (仮名)/index トップページ HTML & CSSコーディング</a><br>
-            <a>ヘッダーフッターのフラスコ版  (仮名)/base.html ヘッダーとフッターを作る</a><br>
-            <a href="/list88">page2のフラスコ版  (仮名)/list88.html ２ページ(88個のリスト)</a><br>
-            <a href="/value_list">【100項目版】/value_list DBから複数データの例</a><br>
-            <a href="/selected">page3のフラスコ版  (仮名)/selected.html ３ページ(絞り込んだ後の表示)</a><br>
-            <a href="/select10">page4のフラスコ版  (仮名)/select10.html ４ページ(最後の10個の優先順位を決める)</ia><br>
-            <a href="results">page5のフラスコ版  (仮名)/results.html ５ページ(最後の成果物のリスト)</a><br>
-            <br>
-            <a href="/list"> (仮名)/list.html ６ページ(ログインする場合は履歴リスト)</a>
-            <br>
-            <a href="/regist">/regist 新規登録 </a>
-            <a href="/login">/login ログイン </a>
-            <a href="/logout">/logout ログアウト</a>
+	<header>
+
+
+        <div class="logo">
+            <img src="../static/img/name.png" alt="">
         </div>
-    </p>
+
+        <div class="logoimage">
+            <img src="../static/img/myvalueslogo.png" alt="">
+        </div>
+
+        <div class="menu">
+    <nav>
+            <ul>
+                <li><a  href="" >トップへ</a></li>
+                <li><a  href="" >参考リンク</a></li>
+
+            </ul>
+    </nav>
+        </div>
+
+
+
+
+	</header>
+
+
+
     <!-- はめ込みのための記述 スペースの有無に注意しなさいな!? -->
     {% block content %}
     {% endblock %}
-    <p style="background-color: black;">ここはフッターでし</p>
+    <footer>
+    <p class="copyright">Copyright &copy; TEAM STOP!ROADKILL all rights reserved.</p>
+</footer>
 </body>
 </html>
