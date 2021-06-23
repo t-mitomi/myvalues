@@ -530,7 +530,10 @@ def logout():
 def list2():
     return render_template("page2.html")    
 
-
+@app.route("/page4")
+# ここがルーティング
+def list4():
+    return render_template("page4.html")    
 
 # ４０４ページ
 # @app.errorhandler(404)
