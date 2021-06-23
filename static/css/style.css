@@ -42,14 +42,12 @@ header {
 	text-align: center;
 	position: fixed;
 	width: 100%;
-    display: flex;
+  display: flex;
 }
 
 header img{ 
     height:50px;
-
 }
-
 
 .logo {
     margin: 5px,0px,0px,5px;
@@ -59,7 +57,6 @@ header img{
 .logoimage{
     padding-top: 10px;
 }
-
 
 .menu {
     margin:0 0 0 auto;
@@ -90,4 +87,31 @@ footer .copyright {
 	font-size: 12px;
 	padding-top: 30px;
 	letter-spacing: 1px;
+}
+
+h1.p1_title{
+    color: #050505;
+    text-align: center;
+    height: 200px,0;
+}
+
+p.p1_description{
+    color: #65676b;
+    text-align: center;
+}
+
+h2.p1_list{
+    color: #050505;
+    text-align: center;
+}
+
+.btn {
+    text-align: center;
+    display: block;
+}
+
+.img {
+    text-align: center;
+    width: 193px;
+    height: 130px;
 }
