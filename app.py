@@ -436,6 +436,13 @@ def logout():
 
 
 
+@app.route("/page2")
+# ここがルーティング
+def list2():
+    return render_template("page2.html")    
+
+
+
 # ４０４ページ
 # @app.errorhandler(404)
 # def not_found():
@@ -447,3 +454,6 @@ if __name__=='__main__':
 
 # debug=True とすると、記述ミスは丁寧に英語表示される！！
 # 実行方法は３つ コマンドで python ファイル名.py macはpython3 ファイル名.py
+
+
+

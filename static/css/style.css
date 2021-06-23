@@ -16,6 +16,10 @@ body {
 	min-width: 100%;
 	-webkit-text-size-adjust: 100%;
 }
+
+
+
+
 li {
 	list-style: none;
 }
@@ -28,11 +32,31 @@ img {
 	border: 0px;
 	vertical-align: bottom;
 }
+
+/* ボタン関係リセット */
+.reset {
+    color: black;
+    text-decoration: none;
+    font-family: sans-serif; /* 書体もリセットしています。不要であれば削除を */
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: normal;
+    border: none;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* iOSタップ時の挙動を調整 */
+}
+
+
 /* --------------------------------------------------- */
 
 /* フォントの指定です。コピペしていただいて構いません。 */
 body {
-	font-family: "Noto Sans Japanese", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", "Meiryo", "HGPｺﾞｼｯｸM", "Osaka", "ＭＳ Ｐゴシック", sans-serif, Century Gothic, Arial;
+	font-family: "Noto Sans Japanese", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", "Meiryo", "HGPｺﾞｼｯｸM", "Osaka", "ＭＳ Ｐゴシック", sans-serif, Century Gothic, Arial,"M PLUS Rounded 1c";
 }
 
 
@@ -75,8 +99,95 @@ ul {
 
 li{
     margin:10px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: 600;
+    color:#707070;
 }
 
+
+
+.container{
+    background-color:#D4DCEF;
+    width: 100%;
+    height: 600px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: #707070; 
+}
+
+.container h1{
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: #707070; 
+}
+
+.box-list{
+    padding-top: 100px;
+}
+
+.first-list table{
+    border-collapse: collapse;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.precious {
+    font-size: x-small;
+    width:50px;
+}
+
+
+
+
+.first-list table td {
+border-width: 0px 0px 1px 0px; /* 上下だけ引く */
+border-color:#707070;  
+border-style: solid;   /* 線種：実線 */
+}
+
+.titles{
+    font-weight: 500;
+    height: 30px;
+    width: 50px;
+}
+
+.need{
+    text-align: left;
+    width: 400px;
+}
+
+.button-box{ margin-top: 30px;}
+
+
+/* ボタンの装飾 */
+
+.button-shadow {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color:#707070;
+    text-align: center;
+    box-sizing: border-box;
+    display: block;
+    max-width: 200px;
+    width: 100%;
+    margin: 0 auto;
+    background: #F8F09B; /* 色変更可能 */
+    font-weight: bold;
+    padding: 13px 10px 10px;
+    border-radius: 30px;
+    border-bottom: 5px solid rgba(0,0,0,0.3);
+}
+.button-shadow:hover {
+    animation: 1s flash;
+}
+.button-shadow:active, .button-shadow:focus {
+    border-bottom-width: 0;
+    margin-top: 5px;
+    background: #E5E460; /* 色変更可能 */
+}
+
+@keyframes flash {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
 
 
 footer {
@@ -90,4 +201,5 @@ footer .copyright {
 	font-size: 12px;
 	padding-top: 30px;
 	letter-spacing: 1px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
 }
