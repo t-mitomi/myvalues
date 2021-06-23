@@ -2,27 +2,8 @@
 {% extends "base.html" %}
 {% block content %}
 <!-- <h2>{{user_name}}さんのリスト</h2> -->
-<div id="開発中のみ利用するリンク集">
-    <h3>開発中 flask時 仮名で登録中</h3>
-    <a href="/">/ ルート</a><br>
-    <a href="/index">page1のフラスコ版 (仮名)/index トップページ HTML & CSSコーディング</a><br>
-    <a>ヘッダーフッターのフラスコ版  (仮名)/base.html ヘッダーとフッターを作る</a><br>
-    <a href="/list88">page2のフラスコ版  (仮名)/list88.html ２ページ(88個のリスト)</a><br>
-    <a href="/list100">page2のフラスコ版  (仮名)/list100.html ２ページ(100個のリスト)</a><br>
-    <a href="/selected">page3のフラスコ版  (仮名)/selected.html ３ページ(絞り込んだ後の表示)</a><br>
-    <a href="/select10">page4のフラスコ版  (仮名)/select10.html ４ページ(最後の10個の優先順位を決める)</ia><br>
-    <a href="results">page5のフラスコ版  (仮名)/results.html ５ページ(最後の成果物のリスト)</a><br>
-    <br>
-    <a href="/list"> (仮名)/list.html ６ページ(ログインする場合は履歴リスト)</a>
-    <br>
-    <a href="/regist">/regist 新規登録 </a>
-    <a href="/login">/login ログイン </a>
-    <a href="/logout">/logout ログアウト</a>
-    <a href="/value_list">/value_list DBから複数データの例</a><br>
-</div>
 <form action="/value_list" id="list100form" style="text-align:center;" method="post">
     <input type="submit" value="select100" name="select100" style="width:300px;">
-    <input type="submit" value="ログイン">
     <table border="1">
         {% for item in value_list %}
         <tr class="value_container">
@@ -31,22 +12,37 @@
             <td>{{item['explanation']}}</td>
             <td>
                 <!-- <input type="text" style="width: 180px;" id="{{item['id']}}" value="0 がデフォルト：直入力用"> -->
-                <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="2">：大変重要 2point</label>
-                <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="1">：重要 1point</label>
-                <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="0">：重要ではない 0point</label>
-                <input type="button" class="up" value="△">
-                <input type="button" class="down" value="▽">
+                <input type="button" class="rowup" value="△">
+                <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="2">大変重要</label>
+                <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="1">重要</label>
+                <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="0" checked>重要ではない</label>
+                <input type="button" class="rowdown" value="▽">
             </td>
         </tr>
         {% endfor %}
     </table>
-    <div id="backToTop" style="position:fixed;right:5px;bottom:5px;"><a href="#">[_↑_]</a></div>
+    <div id="backToTop" style="position:fixed;right:5px;bottom:5px;background-color:rgba(150,150,150,0.6);"><a href="#">[_ページトップへ_↑_]</a></div>
 </form>
 <img src="../static/img/myvalues_keshi.png" alt="">
 <script>
 $(function(){
+    // jQueryでテーブルの行を操作する（移動・削除・追加） https://qiita.com/zinbe/items/f5be42aa47d0960c7195
+    $('.rowup').click(function() {
+        let $row = $(this).closest("tr");
+        let $row_prev = $row.prev("tr");
+        if($row.prev.length) {
+            $row.insertBefore($row_prev);
+        }
+    });
+    $('.rowdown').click(function() {
+        let $row = $(this).closest("tr");
+        let $row_next = $row.next("tr");
+        if($row_next.length) {
+            $row.insertAfter($row_next);
+        }
+    });
     // 
-    // <div id="backToTop" style="position:fixed;right:5px;bottom:5px;"><a href="#">[_↑_]</a></div>
+    // <div id="backToTop" style="position:fixed;right:15px;bottom:5px;"><a href="#" style="background-color:grey;">[_ページトップへ_↑_]</a></div>
     $("#backToTop").hide();
 
     $(window).scroll(function(){
@@ -55,14 +51,14 @@ $(function(){
         }else{
             $("#backToTop").fadeOut();
         }
-    })
+    });
 
     $("#backToTop a").click(function(){
         $("body").animate({
-            scrollTop:0;
+            scrollTop:0
         }, 700);
         return false;
-    })
+    });
 });
 </script>
 {% endblock %}

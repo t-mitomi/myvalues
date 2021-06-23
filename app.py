@@ -108,8 +108,6 @@ def list100():
     else:
         return redirect("/login")
 
-
-
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # DBに保存されているものをｈｔｍｌに表示してみよう
 @app.route("/selected")
@@ -257,9 +255,21 @@ def value_list():
 @app.route("/value_list",methods=["POST"])
 def select100():
     if "user_id" in session:
+        # request.form.get("select100")の場合
         user_id=session["user_id"]
+        # フォームデータの取得
         print("---------------------------------------------------------")
-        print(request.form.get("r1"))
+        print(request.form.get("select100"))
+        user100=[user_id]
+        user100.append(datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S"))
+        user100.append(0)
+        for n in range(1,101):
+            user100.append(request.form.get("r"+str(n)))
+        print("---------------------------------------------------------")
+        print(user100)
+        # フォームから 新規登録依頼があった場合
+        # 登録してidを取得
+        # フォームデータをDBへ
         # データベースに接続
         conn=sqlite3.connect("myvalues.db")
         # カーソル準備
@@ -271,19 +281,13 @@ def select100():
         # c.execute("Select name from users Where id=?;",(user_id ,))
         # user_name=c.fetchone()[0]
         # c.execute("Select value,explanation From values Where user_id=?;",(user_id ,))
-        c.execute("Select id,value,explanation From values100;")
-        value_list=[]
+        c.execute("Insert Into myselect Values(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);",user100)
         # 選択クエリの実行時に１つのレコードを取得する(タプル)
         # user_info=c.fetchone()
         # 選択クエリの実行時に複数のレコードを取得する(タプル)
         # [(1,"fafafa"),(2,"dadada"),(3,"sasasa")]...リスト内タプル
-        # コミット不要
-        for row in c.fetchall():
-            # print(row)
-            # リスト内タプルを使いやすく保存し直す
-            value_list.append({"id":row[0],"task":row[1],"explanation":row[2]})
         # 更新クエリはトランザクションをコミットする
-        # conn.commit()
+        conn.commit()
         # カーソル終了
         c.close()
         # 接続終了
