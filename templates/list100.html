@@ -1,0 +1,50 @@
+<!-- ファイル個別情報 -->
+{% extends "base.html" %}
+{% block content %}
+<!-- <h2>{{user_name}}さんのリスト</h2> -->
+<form action="/value_list" id="list100form" style="text-align:center;" method="post">
+    <input type="submit" value="select100" name="select100" style="width:300px;">
+    <input type="submit" value="ログイン">
+    <table border="1">
+        {% for item in value_list %}
+        <tr class="value_container">
+            <td>{{item['id']}}</td>
+            <td>{{item['task']}}</td>
+            <td>{{item['explanation']}}</td>
+            <td>
+                <!-- <input type="text" style="width: 180px;" id="{{item['id']}}" value="0 がデフォルト：直入力用"> -->
+                <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="2">：大変重要 2point</label>
+                <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="1">：重要 1point</label>
+                <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="0">：重要ではない 0point</label>
+                <input type="button" class="up" value="△">
+                <input type="button" class="down" value="▽">
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div id="backToTop" style="position:fixed;right:5px;bottom:5px;"><a href="#">[_↑_]</a></div>
+</form>
+<img src="../static/img/myvalues_keshi.png" alt="">
+<script>
+$(function(){
+    // 
+    // <div id="backToTop" style="position:fixed;right:5px;bottom:5px;"><a href="#">[_↑_]</a></div>
+    $("#backToTop").hide();
+
+    $(window).scroll(function(){
+        if($(this).scrollTop()>60){
+            $("#backToTop").fadeIn();
+        }else{
+            $("#backToTop").fadeOut();
+        }
+    })
+
+    $("#backToTop a").click(function(){
+        $("body").animate({
+            scrollTop:0;
+        }, 700);
+        return false;
+    })
+});
+</script>
+{% endblock %}
