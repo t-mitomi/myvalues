@@ -161,7 +161,7 @@ border-style: solid;   /* 線種：実線 */
 /* ボタンの装飾 */
 
 .button-shadow {
-    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-family: 'M PLUS Rounded 1c', sanspwserif;
     color:#707070;
     text-align: center;
     box-sizing: border-box;
