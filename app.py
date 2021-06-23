@@ -18,7 +18,7 @@ def helloworld():
 
 # templates 内の html ファイルを作成
 @app.route("/index")
-def templatete():
+def index():
     py_name="Onochang!"
     # return render_template("index.html",name=py_name)
     return render_template("index.html")
@@ -68,6 +68,47 @@ def list88():
         return render_template("list88.html",value_list=value_list,)
     else:
         return redirect("/login")
+
+@app.route("/list100",methods=["GET"])
+def list100():
+    if "user_id" in session:
+        user_id=session["user_id"]
+        # データベースに接続
+        conn=sqlite3.connect("myvalues.db")
+        # カーソル準備
+        c=conn.cursor()
+        # SQL文の実行
+        # オートインクリメントに挿入するには、nullを挿入する
+        # DBとの受け渡しは タプル型 （１データのタプルはデータの後ろに 「,」を付けておく
+        # sql文内の変数は 「?」（プレースホルダ）に引数で割り当てる
+        # c.execute("Select name from users Where id=?;",(user_id ,))
+        # user_name=c.fetchone()[0]
+        # c.execute("Select value,explanation From values Where user_id=?;",(user_id ,))
+        c.execute("Select id,value,explanation From values100;")
+        value_list=[]
+        # 選択クエリの実行時に１つのレコードを取得する(タプル)
+        # user_info=c.fetchone()
+        # 選択クエリの実行時に複数のレコードを取得する(タプル)
+        # [(1,"fafafa"),(2,"dadada"),(3,"sasasa")]...リスト内タプル
+        # コミット不要
+        for row in c.fetchall():
+            # print(row)
+            # リスト内タプルを使いやすく保存し直す
+            value_list.append({"id":row[0],"task":row[1],"explanation":row[2]})
+        # 更新クエリはトランザクションをコミットする
+        # conn.commit()
+        # カーソル終了
+        c.close()
+        # 接続終了
+        conn.close()
+        # チェック出力
+        # print(value_list)
+        # return render_template("value_list.html",value_list=value_list,user_name=user_name)
+        return render_template("list100.html",value_list=value_list,)
+    else:
+        return redirect("/login")
+
+
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # DBに保存されているものをｈｔｍｌに表示してみよう
@@ -172,7 +213,7 @@ def add_post():
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # DBに保存されているものをｈｔｍｌに表示してみよう
-@app.route("/value_list")
+@app.route("/value_list",methods=["GET"])
 def value_list():
     if "user_id" in session:
         user_id=session["user_id"]
@@ -210,6 +251,50 @@ def value_list():
         return render_template("value_list.html",value_list=value_list,)
     else:
         return redirect("/login")
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# DBに保存されているものをｈｔｍｌに表示してみよう
+@app.route("/value_list",methods=["POST"])
+def select100():
+    if "user_id" in session:
+        user_id=session["user_id"]
+        print("---------------------------------------------------------")
+        print(request.form.get("r1"))
+        # データベースに接続
+        conn=sqlite3.connect("myvalues.db")
+        # カーソル準備
+        c=conn.cursor()
+        # SQL文の実行
+        # オートインクリメントに挿入するには、nullを挿入する
+        # DBとの受け渡しは タプル型 （１データのタプルはデータの後ろに 「,」を付けておく
+        # sql文内の変数は 「?」（プレースホルダ）に引数で割り当てる
+        # c.execute("Select name from users Where id=?;",(user_id ,))
+        # user_name=c.fetchone()[0]
+        # c.execute("Select value,explanation From values Where user_id=?;",(user_id ,))
+        c.execute("Select id,value,explanation From values100;")
+        value_list=[]
+        # 選択クエリの実行時に１つのレコードを取得する(タプル)
+        # user_info=c.fetchone()
+        # 選択クエリの実行時に複数のレコードを取得する(タプル)
+        # [(1,"fafafa"),(2,"dadada"),(3,"sasasa")]...リスト内タプル
+        # コミット不要
+        for row in c.fetchall():
+            # print(row)
+            # リスト内タプルを使いやすく保存し直す
+            value_list.append({"id":row[0],"task":row[1],"explanation":row[2]})
+        # 更新クエリはトランザクションをコミットする
+        # conn.commit()
+        # カーソル終了
+        c.close()
+        # 接続終了
+        conn.close()
+        # チェック出力
+        # print(value_list)
+        # return render_template("value_list.html",value_list=value_list,user_name=user_name)
+        return render_template("value_list.html",value_list=value_list,)
+    else:
+        return redirect("/login")
+
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # DBに保存されているものをｈｔｍｌに表示してみよう
@@ -388,7 +473,7 @@ def login_get():
         # return redirect("/list")
         return redirect("/value_list")
     else:
-        return render_template("/login.html")
+        return render_template("login.html")
 
 @app.route("/login",methods=["POST"])
 def login_post():
@@ -421,7 +506,7 @@ def login_post():
         conn.close()
         # id取れたかで条件分岐 取れなければ 空＝エヌワン
         if user_id is None:
-            return render_template("/login.html")
+            return render_template("login.html")
         else:
             # ログインが成功したら ユーザーのブラウザ（cookie）にログイン権限を保管する
             session["user_id"]=user_id[0]
