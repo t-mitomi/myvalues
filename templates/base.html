@@ -1,0 +1,53 @@
+<!-- 共通部ファイル -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="../static/js/common.js"></script>
+<!-- googleフォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+	<header>
+
+
+        <div class="logo">
+            <img src="../static/img/name.png" alt="">
+        </div>
+
+        <div class="logoimage">
+            <img src="../static/img/myvalueslogo.png" alt="">
+        </div>
+
+        <div class="menu">
+    <nav>
+            <ul>
+                <li><a  href="" >トップへ</a></li>
+                <li><a  href="" >参考リンク</a></li>
+
+            </ul>
+    </nav>
+        </div>
+
+
+
+
+	</header>
+
+
+
+    <!-- はめ込みのための記述 スペースの有無に注意しなさいな!? -->
+    {% block content %}
+    {% endblock %}
+    <footer>
+    <p class="copyright">Copyright &copy; TEAM STOP!ROADKILL all rights reserved.</p>
+</footer>
+</body>
+</html>
