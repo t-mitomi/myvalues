@@ -523,20 +523,30 @@ def logout():
     session.pop("user_id",None)
     return redirect("/login")
 
+@app.route("/page1")
+# ここがルーティング
+def list1():
+    return render_template("page1.html") 
+
 @app.route("/page2")
 # ここがルーティング
 def list2():
     return render_template("page2.html")    
 
-@app.route("/page1")
+@app.route("/page3")
 # ここがルーティング
-def list1():
-    return render_template("index.html") 
+def list3():
+    return render_template("page3.html")
 
 @app.route("/page4")
 # ここがルーティング
 def list4():
     return render_template("page4.html")    
+
+@app.route("/page5")
+# ここがルーティング
+def list5():
+    return render_template("page5.html")
 
 # ４０４ページ
 # @app.errorhandler(404)

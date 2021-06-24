@@ -112,6 +112,7 @@ li{
     height: 600px;
     font-family: 'M PLUS Rounded 1c', sans-serif;
     color: #707070; 
+
 }
 
 .container h1{
@@ -161,7 +162,7 @@ border-style: solid;   /* 線種：実線 */
 /* ボタンの装飾 */
 
 .button-shadow {
-    font-family: 'M PLUS Rounded 1c', sanspwserif;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
     color:#707070;
     text-align: center;
     box-sizing: border-box;
@@ -189,54 +190,7 @@ border-style: solid;   /* 線種：実線 */
     to { opacity: 1; }
 }
 
-
-/* ---------------トップページ-------------- */
-/* ボタン装飾終わり */
-
-
-/* 矢印装飾 */
-.arrow_o {
-    position: relative;
-    display: inline-block;
-    padding-left: 20px;
-    color: #707070;
-    text-decoration: none;
-}
-.arrow_o:before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border: 0;
-    border-top: solid 2px #707070;
-    border-right: solid 2px ;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    margin-top: -4px;
-    transform: rotate(-45deg);
-}
-
-.arrow_u {
-    position: relative;
-    display: inline-block;
-    padding-left: 20px;
-    color:  #707070;
-    text-decoration: none;
-}
-.arrow_u:before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border: 0;
-    border-bottom: solid 2px  #707070;
-    border-right: solid 2px  #707070;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    margin-top: -6px;
-    transform: rotate(45deg);
-}
-
+/* ---------------トップページここから-------------- */
 
 .text_box{
     color: #65676b;
@@ -259,11 +213,11 @@ border-style: solid;   /* 線種：実線 */
     font-weight: 600;
 }
 
-/* .img {
-    text-align: center;
-    width: 193px;
-    height: 130px;
-}   */
+.p1_logo {
+    height: 140px;
+    padding: 20px;
+}  
+
 
 
 
@@ -273,7 +227,10 @@ footer {
 	height: 80px;
 	background: #F7F8F5;
 	width: 100%;
-}
+
+    position: absolute;
+    bottom: 0;
+} 
 
 footer .copyright {
 	color: #acacac;
@@ -281,4 +238,3 @@ footer .copyright {
 	padding-top: 30px;
 	letter-spacing: 1px;
     font-family: 'M PLUS Rounded 1c', sans-serif;
-
