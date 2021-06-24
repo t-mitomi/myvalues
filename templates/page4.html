@@ -1,12 +1,37 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>page4</title>
-</head>
-<body>
-    page4
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+                                <div class="container">
+                                    <div class ="box-list">
+                                        <p>
+                                            <h1>選んだ10個の価値観の中でランキングをつけてみよう！</h1>
+                                        </p>   
+                                        
+                                        <div class="first-list">
+                                            <form action="">
+                                                <table >
+                                                    <tr>
+                                                    <th></th><th></th><th></th><th class="precious">▲上へ</th><th class="precious">▼下へ</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1</td><td class="titles">受容</td><td class="need">ありのままの自分を受け容れること</td>
+                                                        <td><a href="#" class="arrow_o"></a></td>
+                                                        <td><a href="#" class="arrow_u"></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td>2</td><td class="titles">達成</td><td class="need">重要な何かを成し遂げること</td>
+                                                    <td><a href="#" class="arrow_o"></a></td>
+                                                    <td><a href="#" class="arrow_u"></a></td>
+                                                    </tr>
+                                                </table>
+                                                <div class ="button-box">
+                                                    <input type="submit" value="リスト完成！" class="reset button-shadow">
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                {% endblock %}
+
+
+
