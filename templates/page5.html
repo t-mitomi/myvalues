@@ -1,12 +1,62 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>page5</title>
-</head>
+{% extends "base.html" %}
+{% block content %}
+
+
 <body>
-    page5
+    <div class="container">
+        <div class ="box-list">
+            <p>
+                <h1>{{name}}さんのパーソナルバリューリスト</h1>
+            </p>   
+            
+            <div class="first-list">
+                <form action="">
+                    <table >
+                       
+                        <tr>
+                            <td>1</td><td class="titles">受容</td><td class="need">ありのままの自分を受け容れること</td>
+                        </tr>
+                        <tr>
+                            <td>2</td><td class="titles">達成</td><td class="need">重要な何かを成し遂げること</td>
+                        </tr>
+                        <tr>
+                            <td>3</td><td class="titles"></td><td class="need"></td>
+                        </tr>
+                        <tr>
+                            <td>4</td><td class="titles"></td><td class="need"></td>
+                        </tr>
+                        <tr>
+                            <td>5</td><td class="titles"></td><td class="need"></td>
+                        </tr>
+                        <tr>
+                            <td>6</td><td class="titles"></td><td class="need"></td>
+                        </tr>
+                        <tr>
+                            <td>7</td><td class="titles"></td><td class="need"></td>
+                        </tr>
+                        <tr>
+                            <td>8</td><td class="titles"></td><td class="need"></td>
+                        </tr>
+                        <tr>
+                            <td>9</td><td class="titles"></td><td class="need"></td>
+                        </tr>
+                        <tr>
+                            <td>10</td><td class="titles"></td><td class="need"></td>
+                        </tr>
+                    </table>
+                    <div class ="button-box">
+                        <input type="submit" value="10個に絞り込む" class="reset button-shadow">
+
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
-</html>
+
+
+
+
+
+{% endblock %}
