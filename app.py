@@ -531,6 +531,12 @@ def list2():
     return render_template("page2.html")    
 
 
+@app.route("/page1")
+# ここがルーティング
+def list1():
+    return render_template("index.html") 
+
+
 
 # ４０４ページ
 # @app.errorhandler(404)
