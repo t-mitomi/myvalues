@@ -202,10 +202,12 @@ footer .copyright {
 	padding-top: 30px;
 	letter-spacing: 1px;
     font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
 h1.p1_title{
     color: #050505;
     text-align: center;
-    height: 200px,0;
+    height: 200px 0;
     
 }
 
