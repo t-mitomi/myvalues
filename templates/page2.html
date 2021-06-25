@@ -8,26 +8,24 @@
         </p>   
         
         <div class="first-list">
-            <form action="">
-                <table >
-                    <tr>
+            <form action="/value_list" method="POST" id="list100form">
+
+                <table>
                     <th></th><th></th><th></th><th class="precious">とても大事</th><th class="precious">大事</th><th class="precious">大事でない</th>
-                    </tr>
+                    {% for item in komatta %}
                     <tr>
-                        <td>1</td><td class="titles">受容</td><td class="need">ありのままの自分を受け容れること</td>
-                        <td><input  id="input1" name="radio1" type="radio" /></td>
-                        <td><input  id="input2" name="radio1" type="radio" /></td>
-                        <td><input  id="input3" name="radio1" type="radio" /></td>
+                    <td>{{item["id"]}}</td>
+                    <td class="titles">{{item["task"]}}</td>
+                    <td class="need">{{item["explanation"]}}</td>
+                    <td><input  id="input1"  type="radio" name="r{{item['id']}}" value="2"/></td>
+                    <td><input  id="input2"  type="radio" name="r{{item['id']}}" value="1"/></td>
+                    <td><input  id="input3"  type="radio" name="r{{item['id']}}" value="0"/></td>
                     </tr>
-                    <tr>
-                    <td>2</td><td class="titles">達成</td><td class="need">重要な何かを成し遂げること</td>
-                        <td><input  id="input1" name="radio2" type="radio" /></td>
-                        <td><input  id="input2" name="radio2" type="radio" /></td>
-                        <td><input  id="input3" name="radio2" type="radio" /></td>
-                    </tr>
+                    {% endfor %}
+
                 </table>
                 <div class ="button-box">
-                    <input type="submit" value="絞り込む" class="reset button-shadow">
+                    <input type="submit" value="絞り込む" class="reset button-shadow" value="select100" name="select100">
                 </div>
             </form>
         </div>
