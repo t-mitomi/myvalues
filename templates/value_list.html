@@ -2,28 +2,31 @@
 {% extends "base.html" %}
 {% block content %}
 <!-- <h2>{{user_name}}さんのリスト</h2> -->
-<form action="/value_list" id="list100form" style="text-align:center;" method="post">
-    <input type="submit" value="select100" name="select100" style="width:300px;">
-    <table border="1">
-        {% for item in value_list %}
-        <tr class="value_container">
-            <td>{{item['id']}}</td>
-            <td>{{item['task']}}</td>
-            <td>{{item['explanation']}}</td>
-            <td>
+<div class="container-page2">
+    <div class="first-list">
+        <form action="/value_list" id="list100form" style="text-align:center;" method="post">
+            <input type="submit" value="select100" name="select100" style="width:300px;">
+            <table>
+            {% for item in value_list %}
+            <tr class="value_container">
+                <td>{{item['id']}}</td>
+                <td class="titles">{{item['task']}}</td>
+                <td class="need">{{item['explanation']}}</td>
+                <td>
                 <!-- <input type="text" style="width: 180px;" id="{{item['id']}}" value="0 がデフォルト：直入力用"> -->
                 <input type="button" class="rowup" value="△">
                 <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="2">大変重要</label>
                 <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="1">重要</label>
                 <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="0" checked>重要ではない</label>
                 <input type="button" class="rowdown" value="▽">
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
-    <div id="backToTop" style="position:fixed;right:5px;bottom:5px;background-color:rgba(150,150,150,0.6);"><a href="#">[_ページトップへ_↑_]</a></div>
-</form>
-<img src="../static/img/myvalues_keshi.png" alt="">
+                </td>
+            </tr>
+            {% endfor %}
+            </table>
+            <div id="backToTop" style="position:fixed;right:5px;bottom:5px;background-color:rgba(150,150,150,0.6);"><a href="#">[_ページトップへ_↑_]</a></div>
+        </form>
+    </div>
+
 <script>
 $(function(){
     // jQueryでテーブルの行を操作する（移動・削除・追加） https://qiita.com/zinbe/items/f5be42aa47d0960c7195
@@ -61,4 +64,6 @@ $(function(){
     });
 });
 </script>
+</div>
+
 {% endblock %}
