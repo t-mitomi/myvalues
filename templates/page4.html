@@ -1,37 +1,71 @@
 {% extends "base.html" %}
 {% block content %}
-                                <div class="container">
-                                    <div class ="box-list">
-                                        <p>
-                                            <h1>選んだ10個の価値観の中でランキングをつけてみよう！</h1>
-                                        </p>   
-                                        
-                                        <div class="first-list">
-                                            <form action="">
-                                                <table >
-                                                    <tr>
-                                                    <th></th><th></th><th></th><th class="precious">▲上へ</th><th class="precious">▼下へ</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td><td class="titles">受容</td><td class="need">ありのままの自分を受け容れること</td>
-                                                        <td><a href="#" class="arrow_o"></a></td>
-                                                        <td><a href="#" class="arrow_u"></a></td>
-                                                    </tr>
-                                                    <tr>
-                                                    <td>2</td><td class="titles">達成</td><td class="need">重要な何かを成し遂げること</td>
-                                                    <td><a href="#" class="arrow_o"></a></td>
-                                                    <td><a href="#" class="arrow_u"></a></td>
-                                                    </tr>
-                                                </table>
-                                                <div class ="button-box">
-                                                    <input type="submit" value="リスト完成！" class="reset button-shadow">
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                {% endblock %}
+<div class ="box-list">
+    <p>
+        <h1>選んだ10個の価値観の中でランキングをつけてみよう！</h1>
+    </p>   
+    <div class="flex_container">
+        <div class="first-list">
+            <form action="">
+                <table >
+                    <tr>
+                        <th>順位</th>
+                    </tr>
+                    <tr>
+                        <td class="titles">1</td>
+                    </tr>
+                    <tr>
+                        <td class="titles">2</td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="first-list">
+            <form action="">
+                <table >
+                    <tr>
+                        <th>id</th><th>項目</th><th>説明</th><th class="precious">▲上へ</th><th class="precious">▼下へ</th>
+                    </tr>
+                    <tr>
+                        <td>1</td><td class="titles">受容</td><td class="need">ありのままの自分を受け容れること</td>
+                        <td><a href="#" class="rowup">▲上へ</a></td>
+                        <td><a href="#" class="rowdown">▼下へ</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td><td class="titles">達成</td><td class="need">重要な何かを成し遂げること</td>
+                        <td><a href="#" class="rowup">▲上へ</a></td>
+                        <td><a href="#" class="rowdown">▼下へ</a></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="first-list">
+    <form action="">
+        <table >
+            <tr>
+                <th>id</th><th>項目</th><th>説明</th><th class="precious">▲上へ</th><th class="precious">▼下へ</th>
+            </tr>
+            <tr>
+                <td><input type="hidden" name="r"></td><td class="titles">受容</td><td class="need">ありのままの自分を受け容れること</td>
+                <td><a href="#" class="rowup">▲上へ</a></td>
+                <td><a href="#" class="rowdown">▼下へ</a></td>
+            </tr>
+            <tr>
+                <td>2</td><td class="titles">達成</td><td class="need">重要な何かを成し遂げること</td>
+                <td><a href="#" class="rowup">▲上へ</a></td>
+                <td><a href="#" class="rowdown">▼下へ</a></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<div class ="button-box">
+    <input type="submit" value="リスト完成！" class="reset button-shadow">
+</div>
+
+{% endblock %}
 
 
 

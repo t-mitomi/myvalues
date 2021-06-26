@@ -2,4 +2,39 @@ $(function(){
     $('a').on('click', function() {
       return false;
     });
-  });
+    // jQueryでテーブルの行を操作する（移動・削除・追加） https://qiita.com/zinbe/items/f5be42aa47d0960c7195
+    $('.rowup').click(function() {
+        let $row = $(this).closest("tr");
+        if($('tr').index($row)<=1){
+            return false;
+        }
+        let $row_prev = $row.prev("tr");
+        if($row_prev.length) {
+            $row.insertBefore($row_prev);
+        }
+    });
+    $('.rowdown').click(function() {
+        let $row = $(this).closest("tr");
+        let $row_next = $row.next("tr");
+        if($row_next.length) {
+            $row.insertAfter($row_next);
+        }
+    });
+    $("#ranking_decision").prop('disabled', true);
+    $('input[type="radio"]').on('change',function(){
+        // 複数要素に同じ処理 $('セレクタ').each(function(index, element){ 〜 });
+        var select_count=0;
+        $('input:radio:checked').each(function(idx,elem){
+            if(parseInt(elem.value)>0){
+                select_count+=1;
+            }
+            if(select_count==10){
+                $("#ranking_decision").prop('disabled', false);
+            }else{
+                $("#ranking_decision").prop('disabled', true);
+            }
+            console.log(select_count+" 件選択中 " );
+            $("#msgarea").text(select_count+" 件選択中 ")
+        });
+    });
+});

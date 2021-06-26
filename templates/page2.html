@@ -1,35 +1,31 @@
 <!-- ファイル個別情報 -->
 {% extends "base.html" %}
 {% block content %}
-<div class="container">
-    <div class ="box-list">
-        <p>
-            <h1>大事な度合いにしたがって◉を入れていこう</h1>
-        </p>   
-        
-        <div class="first-list">
-            <form action="/value_list" method="POST" id="list100form">
-
-                <table>
-                    <th></th><th></th><th></th><th class="precious">とても大事</th><th class="precious">大事</th><th class="precious">大事でない</th>
-                    {% for item in komatta %}
-                    <tr>
-                    <td>{{item["id"]}}</td>
-                    <td class="titles">{{item["task"]}}</td>
-                    <td class="need">{{item["explanation"]}}</td>
-                    <td><input  id="input1"  type="radio" name="r{{item['id']}}" value="2"/></td>
-                    <td><input  id="input2"  type="radio" name="r{{item['id']}}" value="1"/></td>
-                    <td><input  id="input3"  type="radio" name="r{{item['id']}}" value="0"/></td>
-                    </tr>
-                    {% endfor %}
-
-                </table>
-                <div class ="button-box">
-                    <input type="submit" value="絞り込む" class="reset button-shadow" value="select100" name="select100">
-                </div>
-            </form>
-        </div>
+<div class="container-page2">
+    <div class="first-list">
+        <div id="msgarea" style="height:70px;">メッセージ：</div>
+        <form action="/value_list" id="list100form" style="text-align:center;" method="post">
+            <input type="submit" value="select100" name="select100" style="width:300px;">
+            <table>
+                <tr style="height: 100px;">
+                    <th>番号</th><th>価値</th><th>説明</th><th><input type="submit" value="（仮）優先10項目を決定する" id="ranking_decision" name="ranking_decision"></th>
+                </tr>
+{% for item in value_list %}
+                <tr class="value_container">
+                    <td>{{item['id']}}</td>
+                    <td class="titles">{{item['task']}}</td>
+                    <td class="need">{{item['explanation']}}</td>
+                    <td>
+                    <input type="button" class="rowup" value="△">
+                    <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="2">大変重要</label>
+                    <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="1">重要</label>
+                    <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="0" checked>重要ではない</label>
+                    <input type="button" class="rowdown" value="▽">
+                    </td>
+                </tr>
+{% endfor %}
+            </table>
+        </form>
+<img src="../static/img/myvalues_keshi.png" alt="">
     </div>
 </div>
-
-{% endblock %}
