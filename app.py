@@ -13,9 +13,12 @@ def helloworld():
 
 @app.route("/index")
 def index():
-    py_name="Onochang!"
-    # return render_template("index.html",name=py_name)
     return render_template("index.html")
+    # ﾚﾝﾀﾞｰﾃﾝﾌﾟﾚｰﾄ（ｈｔｍｌファイルパス,ｈｔｍｌ内 {{変数}} に送るデータを代入する
+
+@app.route("/index",methods=["POST"])
+def index_post():
+    return redirect("/page2")
     # ﾚﾝﾀﾞｰﾃﾝﾌﾟﾚｰﾄ（ｈｔｍｌファイルパス,ｈｔｍｌ内 {{変数}} に送るデータを代入する
 
 
@@ -156,9 +159,8 @@ def add_post():
     return redirect("/list")
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# DBに保存されているものをｈｔｍｌに表示してみよう
-@app.route("/value_list",methods=["GET"])
-def value_list():
+@app.route("/test",methods=["GET"])
+def test_get():
     user_id=1
     # データベースに接続
     conn=sqlite3.connect("myvalues.db")
@@ -191,13 +193,10 @@ def value_list():
     # チェック出力
     # print(value_list)
     # return render_template("value_list.html",value_list=value_list,user_name=user_name)
-    return render_template("value_list.html",value_list=value_list,)
-
+    return render_template("test.html",value_list=value_list,)
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# DBに保存されているものをｈｔｍｌに表示してみよう
-@app.route("/value_list",methods=["POST"])
-def select100():
-    # request.form.get("select100")の場合
+@app.route("/test",methods=["POST"])
+def test_post():
     user_id=1
     # フォームデータの取得
     print("---------------------------------------------------------")
@@ -232,12 +231,9 @@ def select100():
     # チェック出力
     # print(value_list)
     # return render_template("value_list.html",value_list=value_list,user_name=user_name)
-    return render_template("value_list.html",value_list=value_list,)
+    return redirect("/test")
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
-
 
 
 
@@ -375,14 +371,6 @@ def list1():
 
 
 
-@app.route("/page3",methods=["GET"])
-def page3_get():
-
-    return render_template("page3.html")
-
-@app.route("/page3",methods=["POST"])
-def page3_post():
-    return redirect("/page4")
 
 @app.route("/page4")
 def list4():
@@ -398,100 +386,86 @@ def list5():
 #     return '<a href="/">ページが見つかりませんでした。</a>'
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# page2でDBに保存されているものをｈｔｍｌに表示したい
 @app.route("/page2",methods=["GET"])
-def page2_list():
-
-        # データベースに接続
-        conn=sqlite3.connect("values100.db")
-        # カーソル準備
+def page2_get():
+        conn=sqlite3.connect("myvalues.db")
         c=conn.cursor()
-        # SQL文の実行
-        # オートインクリメントに挿入するには、nullを挿入する
-        # DBとの受け渡しは タプル型 （１データのタプルはデータの後ろに 「,」を付けておく
-        # sql文内の変数は 「?」（プレースホルダ）に引数で割り当てる
-        # c.execute("Select name from users Where id=?;",(user_id ,))
-        # user_name=c.fetchone()[0]
-        # c.execute("Select value,explanation From values Where user_id=?;",(user_id ,))
         c.execute("Select id,value,explanation From values100;")
         value_list=[]
-        # 選択クエリの実行時に１つのレコードを取得する(タプル)
-        # user_info=c.fetchone()
-        # 選択クエリの実行時に複数のレコードを取得する(タプル)
-        # [(1,"fafafa"),(2,"dadada"),(3,"sasasa")]...リスト内タプル
-        # コミット不要
         for row in c.fetchall():
             # print(row)
             # リスト内タプルを使いやすく保存し直す
             value_list.append({"id":row[0],"task":row[1],"explanation":row[2]})
-        # 更新クエリはトランザクションをコミットする
-        # conn.commit()
-        # カーソル終了
         c.close()
-        # 接続終了
         conn.close()
         # チェック出力
         # print(value_list)
-        # return render_template("value_list.html",value_list=value_list,user_name=user_name)
-        return redirect("/page3.html")
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# page2でDBに保存されているものをｈｔｍｌに表示してみよう
-@app.route("/value_list",methods=["POST"])
-def selectpage2():
+        return render_template("/page2.html",value_list=value_list)
 
-        # request.form.get("select100")の場合
+@app.route("/page2",methods=["POST"])
+def page2_post():
         user_id=1
-        # フォームデータの取得
-        print("---------------------------------------------------------")
-        print(request.form.get("select100"))
+        # print("---------------------------------------------------------")
+        # print(request.form.get("select100"))
         user100=[user_id]
         user100.append(datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S"))
         user100.append(0)
         for n in range(1,101):
             user100.append(request.form.get("r"+str(n)))
-        print("---------------------------------------------------------")
-        print(user100)
-        # フォームから 新規登録依頼があった場合
-        # 登録してidを取得
-        # フォームデータをDBへ
-        # データベースに接続
+        # print("---------------------------------------------------------")
+        # print(user100)
         conn=sqlite3.connect("myvalues.db")
-        # カーソル準備
         c=conn.cursor()
-        # SQL文の実行
         # オートインクリメントに挿入するには、nullを挿入する
         # DBとの受け渡しは タプル型 （１データのタプルはデータの後ろに 「,」を付けておく
         # sql文内の変数は 「?」（プレースホルダ）に引数で割り当てる
-        # c.execute("Select name from users Where id=?;",(user_id ,))
-        # user_name=c.fetchone()[0]
         # c.execute("Select value,explanation From values Where user_id=?;",(user_id ,))
         c.execute("Insert Into myselect Values(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);",user100)
-        # 選択クエリの実行時に１つのレコードを取得する(タプル)
-        # user_info=c.fetchone()
+        # 選択クエリの実行時に１つのレコードを取得する(タプル)# user_info=c.fetchone()
         # 選択クエリの実行時に複数のレコードを取得する(タプル)
         # [(1,"fafafa"),(2,"dadada"),(3,"sasasa")]...リスト内タプル
-        # 更新クエリはトランザクションをコミットする
-        conn.commit()
-        # カーソル終了
-        c.close()
-        # 接続終了
-        conn.close()
-        # チェック出力
-        # print(value_list)
-        # return render_template("value_list.html",value_list=value_list,user_name=user_name)
-        return redirect("/page3.html")
+        conn.commit()# 更新クエリはトランザクションをコミットする
+        c.close()# カーソル終了
+        conn.close()# 接続終了
+        return redirect("/page3")
 
+
+@app.route("/page3",methods=["GET"])
+def page3_get():
+    user_id=1
+    # DBからpage2で選択したvalue
+    conn=sqlite3.connect("myvalues.db")
+    cur=conn.cursor()
+    cur.execute("Select * From myselect Order by savedate desc Limit 1;")
+    selected=cur.fetchone()
+    # print("---------------------------------------------------------")
+    # print(selected)
+    # DBからvalue100取り出し
+    c=conn.cursor()
+    c.execute("Select id,value,explanation From values100;")
+    value_list=[]
+    i = 4
+    for row in c.fetchall():
+        # page2で選択されなかったvalueは0点なのでpage3では不要
+        if not selected[i]==0:
+            # リスト内タプルを使いやすく保存し直す
+            value_list.append({"id":row[0],"task":row[1],"explanation":row[2],"emphasis":selected[i]})
+        i=i+1
+    c.close()
+    cur.close()
+    conn.close()
+    # チェック出力
+    print("---------------------------------------------------------")
+    print(value_list)
+    # return render_template("value_list.html",value_list=value_list,user_name=user_name)
+    return render_template("page3.html",value_list=value_list,)
+
+@app.route("/page3",methods=["POST"])
+def page3_post():
+    return redirect("/page4")
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
-
-
-
-
-
 
 
 # ここの下もおまじない（いじるな！）
