@@ -301,6 +301,12 @@ def select100():
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+
+
+
 # DBに保存されているものをｈｔｍｌに表示してみよう
 @app.route("/list")
 def list():
@@ -523,25 +529,130 @@ def logout():
     session.pop("user_id",None)
     return redirect("/login")
 
-@app.route("/page2")
-# ここがルーティング
-def list2():
-    return render_template("page2.html")    
-
 @app.route("/page1")
 # ここがルーティング
 def list1():
-    return render_template("index.html") 
+    return render_template("page1.html") 
+
+
+
+@app.route("/page3")
+# ここがルーティング
+def list3():
+    return render_template("page3.html")
 
 @app.route("/page4")
 # ここがルーティング
 def list4():
     return render_template("page4.html")    
 
+@app.route("/page5")
+# ここがルーティング
+def list5():
+    return render_template("page5.html")
+
 # ４０４ページ
 # @app.errorhandler(404)
 # def not_found():
 #     return '<a href="/">ページが見つかりませんでした。</a>'
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# page2でDBに保存されているものをｈｔｍｌに表示したい
+@app.route("/page2",methods=["GET"])
+def page2_list():
+
+        # データベースに接続
+        conn=sqlite3.connect("myvalues.db")
+        # カーソル準備
+        c=conn.cursor()
+        # SQL文の実行
+        # オートインクリメントに挿入するには、nullを挿入する
+        # DBとの受け渡しは タプル型 （１データのタプルはデータの後ろに 「,」を付けておく
+        # sql文内の変数は 「?」（プレースホルダ）に引数で割り当てる
+        # c.execute("Select name from users Where id=?;",(user_id ,))
+        # user_name=c.fetchone()[0]
+        # c.execute("Select value,explanation From values Where user_id=?;",(user_id ,))
+        c.execute("Select id,value,explanation From values100;")
+        value_list=[]
+        # 選択クエリの実行時に１つのレコードを取得する(タプル)
+        # user_info=c.fetchone()
+        # 選択クエリの実行時に複数のレコードを取得する(タプル)
+        # [(1,"fafafa"),(2,"dadada"),(3,"sasasa")]...リスト内タプル
+        # コミット不要
+        for row in c.fetchall():
+            # print(row)
+            # リスト内タプルを使いやすく保存し直す
+            value_list.append({"id":row[0],"task":row[1],"explanation":row[2]})
+        # 更新クエリはトランザクションをコミットする
+        # conn.commit()
+        # カーソル終了
+        c.close()
+        # 接続終了
+        conn.close()
+        # チェック出力
+        # print(value_list)
+        # return render_template("value_list.html",value_list=value_list,user_name=user_name)
+        return render_template("page2.html",  komatta=value_list,)
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# page2でDBに保存されているものをｈｔｍｌに表示してみよう
+@app.route("/value_list",methods=["POST"])
+def selectpage2():
+
+        # request.form.get("select100")の場合
+        user_id=session["user_id"]
+        # フォームデータの取得
+        print("---------------------------------------------------------")
+        print(request.form.get("select100"))
+        user100=[user_id]
+        user100.append(datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S"))
+        user100.append(0)
+        for n in range(1,101):
+            user100.append(request.form.get("r"+str(n)))
+        print("---------------------------------------------------------")
+        print(user100)
+        # フォームから 新規登録依頼があった場合
+        # 登録してidを取得
+        # フォームデータをDBへ
+        # データベースに接続
+        conn=sqlite3.connect("myvalues.db")
+        # カーソル準備
+        c=conn.cursor()
+        # SQL文の実行
+        # オートインクリメントに挿入するには、nullを挿入する
+        # DBとの受け渡しは タプル型 （１データのタプルはデータの後ろに 「,」を付けておく
+        # sql文内の変数は 「?」（プレースホルダ）に引数で割り当てる
+        # c.execute("Select name from users Where id=?;",(user_id ,))
+        # user_name=c.fetchone()[0]
+        # c.execute("Select value,explanation From values Where user_id=?;",(user_id ,))
+        c.execute("Insert Into myselect Values(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);",user100)
+        # 選択クエリの実行時に１つのレコードを取得する(タプル)
+        # user_info=c.fetchone()
+        # 選択クエリの実行時に複数のレコードを取得する(タプル)
+        # [(1,"fafafa"),(2,"dadada"),(3,"sasasa")]...リスト内タプル
+        # 更新クエリはトランザクションをコミットする
+        conn.commit()
+        # カーソル終了
+        c.close()
+        # 接続終了
+        conn.close()
+        # チェック出力
+        # print(value_list)
+        # return render_template("value_list.html",value_list=value_list,user_name=user_name)
+        return render_template("page2.html",value_list=value_list,)
+
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+
+
+
+
+
 
 # ここの下もおまじない（いじるな！）
 if __name__=='__main__':
