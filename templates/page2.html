@@ -1,31 +1,29 @@
 <!-- ファイル個別情報 -->
 {% extends "base.html" %}
 {% block content %}
+<div id="msgarea" style="height:70px;"> 0 件選択中 </div>
 <div class="container-page2">
     <div class="first-list">
-        <div id="msgarea" style="height:70px;">メッセージ：</div>
-        <form action="/value_list" id="list100form" style="text-align:center;" method="post">
-            <input type="submit" value="select100" name="select100" style="width:300px;">
+        <form action="/page2" id="list100form" method="post">
             <table>
-                <tr style="height: 100px;">
-                    <th>番号</th><th>価値</th><th>説明</th><th><input type="submit" value="（仮）優先10項目を決定する" id="ranking_decision" name="ranking_decision"></th>
+                <tr>
+                    <th>番号</th><th>価値</th><th>説明</th><th><input type="submit" value="（仮）10ケ以上の項目を選択決定" id="selected" name="selected"></th>
                 </tr>
-{% for item in value_list %}
+                {% for item in value_list %}
                 <tr class="value_container">
                     <td>{{item['id']}}</td>
                     <td class="titles">{{item['task']}}</td>
                     <td class="need">{{item['explanation']}}</td>
                     <td>
-                    <input type="button" class="rowup" value="△">
-                    <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="2">大変重要</label>
-                    <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="1">重要</label>
-                    <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="0" checked>重要ではない</label>
-                    <input type="button" class="rowdown" value="▽">
+                        <label><input type="radio" name="r{{item['id']}}" value="2">大変重要</label>
+                        <label><input type="radio" name="r{{item['id']}}" value="1">重要</label>
+                        <label><input type="radio" name="r{{item['id']}}" value="0" checked>重要ではない</label>
                     </td>
                 </tr>
-{% endfor %}
+                {% endfor %}
             </table>
         </form>
 <img src="../static/img/myvalues_keshi.png" alt="">
     </div>
 </div>
+{% endblock %}
