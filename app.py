@@ -431,9 +431,8 @@ def page3_get():
     cur=conn.cursor()
     cur.execute("Select * From myselect Order by savedate desc Limit 1;")
     selected=cur.fetchone()
-    # print("---------------------------------------------------------")
+    # print("------page3  Get1---------------------------------------------------")
     # print(selected)
-    # DBからvalue100取り出し
     c=conn.cursor()
     c.execute("Select id,value,explanation From values100;")
     value_list=[]
@@ -448,13 +447,17 @@ def page3_get():
     cur.close()
     conn.close()
     # チェック出力
-    print("---------------------------------------------------------")
-    print(value_list)
+    # print("----------page3---Get2--------------------------------------------")
+    # print(value_list)
     # return render_template("value_list.html",value_list=value_list,user_name=user_name)
     return render_template("page3.html",value_list=value_list,)
 
 @app.route("/page3",methods=["POST"])
 def page3_post():
+    # print("----------page3---Post request.form-----------------------------------")
+    # print(request.form)
+#     ----------page3---Post request.form-----------------------------------
+# ImmutableMultiDict([('select10', '（仮）10ケの項目を選択決定'), ('r1', '1'), ('r2', '2'), ('r3', '1'), ('r4', '2'), ('r5', '1'), ('r6', '2'), ('r7', '1'), ('r8', '2'), ('r9', '1'), ('r10', '2')])
     user_id=1
     sql0="Insert Into myselect(id,user_id,savedate,del_flag"
     sql1=")Values(null,?,?,0,?,?,?,?,?,?,?,?,?,?"
@@ -463,7 +466,7 @@ def page3_post():
     for key,val in request.form:
         sql0+=","+key
         placeholder.append(int(val))
-    print("---------------------------------------------------------")
+    print("------page3  POST---------------------------------------------------")
     print(sql0+sql1+" "+placeholder)
     conn=sqlite3.connect("myvalues.db")
     c=conn.cursor()
