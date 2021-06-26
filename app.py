@@ -264,8 +264,6 @@ def list():
     else:
         return redirect("/login")
 
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # DBを更新してみよう ｃｒUｄ
 @app.route("/edit/<int:id>")
 def edit(id):
@@ -302,7 +300,6 @@ def edit(id):
     else:
         return redirect("/login")
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # 登録機能
 @app.route("/regist",methods=["GET"])
 def regist_get():
@@ -327,7 +324,6 @@ def regist_post():
         conn.close()
         return redirect("/login")
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 @app.route("/login",methods=["GET"])
 def login_get():
     if "user_id" in session:
@@ -368,9 +364,6 @@ def logout():
 @app.route("/page1")
 def list1():
     return render_template("page1.html") 
-
-
-
 
 @app.route("/page4")
 def list4():
@@ -433,7 +426,7 @@ def page2_post():
 @app.route("/page3",methods=["GET"])
 def page3_get():
     user_id=1
-    # DBからpage2で選択したvalue
+    # page2で選択したvalue
     conn=sqlite3.connect("myvalues.db")
     cur=conn.cursor()
     cur.execute("Select * From myselect Order by savedate desc Limit 1;")
@@ -462,6 +455,33 @@ def page3_get():
 
 @app.route("/page3",methods=["POST"])
 def page3_post():
+    user_id=1
+    sql0="Insert Into myselect(id,user_id,savedate,del_flag"
+    sql1=")Values(null,?,?,0,?,?,?,?,?,?,?,?,?,?"
+    placeholder=[user_id,datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")]
+    # フォームデータの取得
+    for key,val in request.form:
+        sql0+=","+key
+        placeholder.append(int(val))
+    print("---------------------------------------------------------")
+    print(sql0+sql1+" "+placeholder)
+    conn=sqlite3.connect("myvalues.db")
+    c=conn.cursor()
+    # 項目指定の更新文
+    c.execute(sql0+sql1,placeholder)
+    # 選択クエリの実行時に１つのレコードを取得する(タプル)
+    # user_info=c.fetchone()
+    # 選択クエリの実行時に複数のレコードを取得する(タプル)
+    # [(1,"fafafa"),(2,"dadada"),(3,"sasasa")]...リスト内タプル
+    # 更新クエリはトランザクションをコミットする
+    conn.commit()
+    # カーソル終了
+    c.close()
+    # 接続終了
+    conn.close()
+    # チェック出力
+    # print(value_list)
+    # return render_template("value_list.html",value_list=value_list,user_name=user_name)
     return redirect("/page4")
 
 
