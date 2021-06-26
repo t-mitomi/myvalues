@@ -367,7 +367,32 @@ def list1():
 
 @app.route("/page4")
 def list4():
-    return render_template("page4.html")
+    user_id=1
+    conn=sqlite3.connect("myvalues.db")
+    cur=conn.cursor()
+    cur.execute("Select * From myselect Order by savedate desc Limit 1;")
+    selected=cur.fetchone()
+    # print("------page4  Get1---------------------------------------------------")
+    # print(selected)
+    c=conn.cursor()
+    c.execute("Select id,value,explanation From values100;")
+    value_list=[]
+    i = 4
+    for row in c.fetchall():
+        # page3で選択されなかったvalueは0点なのでpage4では不要
+        if not selected[i]==0:
+            # リスト内タプルを使いやすく保存し直す
+            value_list.append({"id":row[0],"task":row[1],"explanation":row[2],"emphasis":selected[i]})
+        i=i+1
+    c.close()
+    cur.close()
+    conn.close()
+    # チェック出力
+    # print("----------page4---Get2--------------------------------------------")
+    # print(value_list)
+    # return render_template("value_list.html",value_list=value_list,user_name=user_name)
+    return render_template("page4.html",value_list=value_list,)
+
 
 @app.route("/page5")
 def list5():
