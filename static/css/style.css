@@ -148,8 +148,8 @@ li{
 .first-list table{
     border-collapse: collapse;
     margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
 }
 
 .precious {
@@ -213,29 +213,56 @@ border-style: solid;   /* 線種：実線 */
     to { opacity: 1; }
 }
 
-/* ---------------トップページここから-------------- */
 
-.text_box{
-    color: #65676b;
-    font-family: 'M PLUS Rounded 1c', sans-serif;
-    font-weight: 600;
-    text-align: center;
-    padding-top: 120px;
-
+footer {
+	height: 80px;
+	background: #F7F8F5;
+	width: 100%;
 }
 
-.description{
+footer .copyright {
+	color: #acacac;
+	font-size: 12px;
+	padding-top: 30px;
+	letter-spacing: 1px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+h1.p1_title{
     color: #050505;
-    text-align: center; 
-    padding-top: 30px; 
+    text-align: center;
+    height: 200px 0;
+    
 }
 
-.list {
-    padding-top: 30px;
-    font-family: 'M PLUS Rounded 1c', sans-serif;
-    font-weight: 600;
+
+p.p1_description{
+    color: #65676b;
+    text-align: center;
+    
+
 }
 
+h2.p1_list{
+    color: #050505;
+    text-align: center;
+}
+
+.btn {
+    text-align: center;
+    display: block;
+    
+}
+
+.img {
+    text-align: center;
+    width: 193px;
+    height: 130px;
+}
+
+.flex_container{
+    display: flex;
+}
 .p1_logo {
     height: 140px;
     padding: 20px;
@@ -260,3 +287,4 @@ footer .copyright {
 	padding-top: 30px;
 	letter-spacing: 1px;
     font-family: 'M PLUS Rounded 1c', sans-serif;
+}
