@@ -1,33 +1,37 @@
 <!-- ファイル個別情報 -->
 {% extends "base.html" %}
 {% block content %}
-<div class="c">
+<div class="container">
     <div class ="box-list">
         <p>
             <h1>大事な度合いにしたがって◉を入れていこう</h1>
         </p>
         <div class="first-list">
-        <form action="/page2" id="list100form" method="post">
-            <table>
-                <tr>
-                    <th>番号</th><th>価値</th><th>説明</th><th><input type="submit" value="（仮）10ケ以上の項目を選択決定" id="selected" name="selected"></th>
-                </tr>
-                {% for item in value_list %}
-                <tr class="value_container">
-                    <td>{{item['id']}}</td>
-                    <td class="titles">{{item['task']}}</td>
-                    <td class="need">{{item['explanation']}}</td>
-                    <td>
-                        <label><input type="radio" name="r{{item['id']}}" value="2">大変重要</label>
-                        <label><input type="radio" name="r{{item['id']}}" value="1">重要</label>
-                        <label><input type="radio" name="r{{item['id']}}" value="0" checked>重要ではない</label>
-                    </td>
-                </tr>
-                {% endfor %}
-            </table>
-        </form>
+            <form action="/page2" id="list100form" method="post">
+                <table>
+                    <tr class="value_container">
+                        <th>番号</th><th class="titles">価値</th><th class="need">説明</th><th></th>
+                    </tr>
+                    {% for item in value_list %}
+                    <tr class="value_container">
+                        <td>{{item['id']}}</td>
+                        <td class="titles">{{item['task']}}</td>
+                        <td class="need">{{item['explanation']}}</td>
+                        <td>
+                            <label><input type="radio" name="r{{item['id']}}" value="2">とても大事</label>
+                            <label><input type="radio" name="r{{item['id']}}" value="1">大事</label>
+                            <label class="last"><input type="radio" name="r{{item['id']}}" value="0" checked>大事ではない</label>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <div class ="button-box">
+                <input type="submit" value="絞り込む" id="selected" name="selected" class="reset button-shadow">
+                </div>
+                <p>"とても大事"の項目は10個以上選んでね！</p>
+            </form>
         </div>  
-    <img src="../static/img/myvalues_keshi.png" alt="">
+
     </div>
 </div>
 {% endblock %}
