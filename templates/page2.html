@@ -1,9 +1,12 @@
 <!-- ファイル個別情報 -->
 {% extends "base.html" %}
 {% block content %}
-<div id="msgarea" style="height:70px;"> 0 件選択中 </div>
-<div class="container-page2">
-    <div class="first-list">
+<div class="c">
+    <div class ="box-list">
+        <p>
+            <h1>大事な度合いにしたがって◉を入れていこう</h1>
+        </p>
+        <div class="first-list">
         <form action="/page2" id="list100form" method="post">
             <table>
                 <tr>
@@ -23,7 +26,8 @@
                 {% endfor %}
             </table>
         </form>
-<img src="../static/img/myvalues_keshi.png" alt="">
+        </div>  
+    <img src="../static/img/myvalues_keshi.png" alt="">
     </div>
 </div>
 {% endblock %}

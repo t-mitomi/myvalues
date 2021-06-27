@@ -420,6 +420,7 @@ def page2_get():
         # print(value_list)
         return render_template("/page2.html",value_list=value_list)
 
+
 @app.route("/page2",methods=["POST"])
 def page2_post():
         user_id=1
