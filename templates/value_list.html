@@ -3,11 +3,11 @@
 {% block content %}
 <div class="container-page2">
     <div class="first-list">
-        <div id="msgarea" style="height:70px;">メッセージ：</div>
+        <div id="msgarea" >メッセージ：</div>
         <form action="/value_list" id="list100form" style="text-align:center;" method="post">
             <input type="submit" value="select100" name="select100" style="width:300px;">
             <table>
-                <tr style="height: 100px;">
+                <tr">
                     <th>番号</th><th>価値</th><th>説明</th><th><input type="submit" value="（仮）優先10項目を決定する" id="ranking_decision" name="ranking_decision"></th>
                 </tr>
                 {% for item in value_list %}
