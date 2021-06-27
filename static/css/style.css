@@ -149,11 +149,14 @@ li{
 
 .box-list h2{
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /* index.htmlのCSS */
 .description{
     margin-top: 20px;
+    width: 720px;
+    margin: 0 auto;
 }
 
 
