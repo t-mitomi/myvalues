@@ -7,10 +7,10 @@
             <h1>さらに10個まで絞り込んでみよう！</h1>
         </p>
         <div class="first-list">
-            <form action="/page2" id="list100form" method="post">
+            <form action="/page3" id="list100form" method="post">
                 <table>
                     <tr>
-                        <th>番号</th><th>価値</th><th>説明</th><th><input type="submit" value="（仮）10ケの項目を選択決定" id="select10" name="select10"></th>
+                        <th>番号</th><th>価値</th><th>説明</th><th><input type="submit" value="10個に絞り込む" class="select10"></th>
                     </tr>
                     {% for item in value_list %}
                     <tr class="value_container">
@@ -26,7 +26,7 @@
                     {% endfor %}
                 </table>
                 <div class ="button-box">
-                    <input type="submit" value="10個に絞り込む" class="reset button-shadow">
+                    <input type="submit" value="10個に絞り込む" class="reset button-shadow select10">
                 </div>
             </form>
         </div>

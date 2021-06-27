@@ -38,7 +38,7 @@ $(function(){
         });
     });
     if($("tr").length!=11){
-        $("#select10").prop('disabled', true);
+        $(".select10").prop('disabled', true);
     }
     $('input[type="radio"]').on('change',function(){
         // 複数要素に同じ処理 $('セレクタ').each(function(index, element){ 〜 });
@@ -48,9 +48,9 @@ $(function(){
                 select_count+=1;
             }
             if(select_count==10){
-                $("#select10").prop('disabled', false);
+                $(".select10").prop('disabled', false);
             }else{
-                $("#select10").prop('disabled', true);
+                $(".select10").prop('disabled', true);
             }
             console.log(select_count+" 件選択中 " );
             $("#msgarea").text(select_count+" 件選択中 ")
