@@ -31,7 +31,7 @@
 <!-- {% endblock %} -->
 <div class ="box-list">
     <p>
-        <h1>選んだ10個の価値観の中でランキングをつけてみよう！</h1>
+        <h1 class="ranking">選んだ10個の価値観の中でランキングをつけてみよう！</h1>
     </p>   
     <div class="flex_container">
         <div class="first-list">
@@ -92,6 +92,17 @@
 <div class ="button-box">
     <input type="submit" value="リスト完成！" class="reset button-shadow">
 </div>
+
+
+
+<script>
+    $(".button-box").click(function() {
+        $(".precious.reset button-shadow").hide();
+        $(".ranking").text("あなたのパーソナルバリューリスト");
+    })
+</script>
+
+
 {% endblock %}
 
 
