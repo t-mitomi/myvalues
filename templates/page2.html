@@ -10,7 +10,7 @@
             <form action="/page2" id="list100form" method="post">
                 <table>
                     <tr class="value_container">
-                        <th>番号</th><th class="titles">価値</th><th class="need">説明</th><th></th>
+                        <th>ID</th><th class="titles">価値</th><th class="need">説明</th><th>操作</th>
                     </tr>
                     {% for item in value_list %}
                     <tr class="value_container">
@@ -31,7 +31,6 @@
                 <p>"とても大事"の項目は10個以上選んでね！</p>
             </form>
         </div>  
-
     </div>
 </div>
 {% endblock %}
