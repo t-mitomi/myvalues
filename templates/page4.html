@@ -1,30 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
-<div id="msgarea" style="height:70px;"> 0 件選択中 </div>
-<div class="container-page2">
-    <div class="first-list">
-        <form action="/page4" id="list100form" method="post">
-            <table>
-                <tr>
-                    <th>番号</th><th>価値</th><th>説明</th><th><input type="submit" value="（仮）順番決定" id="ranking_decision" name="ranking_decision"></th>
-                </tr>
-                {% for item in value_list %}
-                <tr class="value_container">
-                    <td>{{item['id']}}</td>
-                    <td class="titles">{{item['task']}}</td>
-                    <td class="need">{{item['explanation']}}</td>
-                    <td>
-                        <label><input type="radio" name="r{{item['id']}}" value="2" {% if item['emphasis']==2 %} checked="checked"{% endif %}>大変重要</label>
-                        <label><input type="radio" name="r{{item['id']}}" value="1" {% if item['emphasis']==1 %} checked="checked"{% endif %}>重要</label>
-                        <label><input type="radio" name="r{{item['id']}}" value="0" {% if item['emphasis']==0 %} checked="checked"{% endif %}>重要ではない</label>
-                    </td>
-                </tr>
-                {% endfor %}
-            </table>
-        </form>
-<img src="../static/img/myvalues_keshi.png" alt="">
-    </div>
+<div id="msgarea" style="height:70px;"> 0 件選択中 
 </div>
+    <div class="container-page2">
+        <div class="first-list">
+            <form action="/page4" id="list100form" method="post">
+                <table>
+                    <tr>
+                        <th>番号</th>
+                        <th>価値</th>
+                        <th>説明</th>
+                        <th><input type="submit" value="（仮）順番決定" id="ranking_decision" name="ranking_decision"></th>
+                    </tr>
+                    {% for item in value_list %}
+                    <tr class="value_container">
+                        <td>{{item['id']}}</td>
+                        <td class="titles">{{item['task']}}</td>
+                        <td class="need">{{item['explanation']}}</td>
+                        <td>
+                            <label><input type="radio" name="r{{item['id']}}" value="2" {% if item['emphasis']==2 %} checked="checked"{% endif %}>大変重要</label>
+                            <label><input type="radio" name="r{{item['id']}}" value="1" {% if item['emphasis']==1 %} checked="checked"{% endif %}>重要</label>
+                            <label><input type="radio" name="r{{item['id']}}" value="0" {% if item['emphasis']==0 %} checked="checked"{% endif %}>重要ではない</label>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </form>
+        </div>
+    </div>
 <!-- {% endblock %} -->
 <div class ="box-list">
     <p>
@@ -86,10 +89,10 @@
         </table>
     </form>
 </div>
-
 <div class ="button-box">
     <input type="submit" value="リスト完成！" class="reset button-shadow">
 </div>
+
 
 
 <script>

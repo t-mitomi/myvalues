@@ -143,14 +143,46 @@ li{
 
 .box-list{
     padding-top: 100px;
+    margin: 0 auto;
+    margin-bottom:30px;
 }
+
+.box-list h2{
+    margin-top: 20px;
+}
+
+/* index.htmlのCSS */
+.description{
+    margin-top: 20px;
+}
+
+
+
+.list h2 {
+    margin-top: 20px;
+
+}
+
+
+
+/* 表のCSS */
 
 .first-list table{
     border-collapse: collapse;
     margin-top: 30px;
-    /* margin-left: auto;
-    margin-right: auto; */
+    margin-left: auto;
+    margin-right: auto; 
 }
+
+.first-list table td{
+    background: #F7F8F5;
+
+}
+
+.first-list table tr:nth-child(odd) td {
+	background: #D4DCEF;
+}
+    
 
 .precious {
     font-size: x-small;
@@ -158,18 +190,19 @@ li{
 }
 
 
-
-
 .first-list table td {
-border-width: 0px 0px 1px 0px; /* 上下だけ引く */
+    /*  
+border-width: 0px 0px 1px 0px; 上下だけ引く
 border-color:#707070;  
 border-style: solid;   /* 線種：実線 */
+margin-right: 10px;
+
 }
 
 .titles{
     font-weight: 500;
     height: 30px;
-    width: 130px;
+    width: 150px;
     text-align: left;
     padding-left: 10px;
 }
@@ -179,8 +212,15 @@ border-style: solid;   /* 線種：実線 */
     width: 400px;
 }
 
+.last{
+    margin-right:20px;
+}
+
 .button-box{ margin-top: 30px;}
 
+.button-box img{
+    align-items: baseline;
+    width:200px            }
 
 /* ボタンの装飾 */
 
@@ -244,6 +284,7 @@ p.p1_description{
 }
 
 h2.p1_list{
+
     color: #050505;
     text-align: center;
 }
