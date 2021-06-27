@@ -199,14 +199,14 @@ def test_get():
 def test_post():
     user_id=1
     # フォームデータの取得
-    print("---------------------------------------------------------")
+    print("---")
     print(request.form.get("select100"))
     user100=[user_id]
     user100.append(datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S"))
     user100.append(0)
     for n in range(1,101):
         user100.append(request.form.get("r"+str(n)))
-    print("---------------------------------------------------------")
+    print("---")
     print(user100)
     conn=sqlite3.connect("myvalues.db")
     c=conn.cursor()
@@ -310,7 +310,7 @@ def regist_get():
 
 @app.route("/regist",methods=["POST"])
 def regist_post():
-    # print("-------------------regist_post------------------------")
+    # print("-----regist_post----------")
     if "user_id" in session:
         return redirect("/logout")
     else:
@@ -365,34 +365,6 @@ def logout():
 def list1():
     return render_template("page1.html") 
 
-@app.route("/page4")
-def list4():
-    user_id=1
-    conn=sqlite3.connect("myvalues.db")
-    cur=conn.cursor()
-    cur.execute("Select * From myselect Order by savedate desc Limit 1;")
-    selected=cur.fetchone()
-    # print("------page4  Get1---------------------------------------------------")
-    # print(selected)
-    c=conn.cursor()
-    c.execute("Select id,value,explanation From values100;")
-    value_list=[]
-    i = 4
-    for row in c.fetchall():
-        # page3で選択されなかったvalueは0点なのでpage4では不要
-        if not selected[i]==0:
-            # リスト内タプルを使いやすく保存し直す
-            value_list.append({"id":row[0],"task":row[1],"explanation":row[2],"emphasis":selected[i]})
-        i=i+1
-    c.close()
-    cur.close()
-    conn.close()
-    # チェック出力
-    # print("----------page4---Get2--------------------------------------------")
-    # print(value_list)
-    # return render_template("value_list.html",value_list=value_list,user_name=user_name)
-    return render_template("page4.html",value_list=value_list,)
-
 
 @app.route("/page5")
 def list5():
@@ -424,14 +396,14 @@ def page2_get():
 @app.route("/page2",methods=["POST"])
 def page2_post():
         user_id=1
-        # print("---------------------------------------------------------")
+        # print("---")
         # print(request.form.get("select100"))
         user100=[user_id]
         user100.append(datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S"))
         user100.append(0)
         for n in range(1,101):
             user100.append(request.form.get("r"+str(n)))
-        # print("---------------------------------------------------------")
+        # print("---")
         # print(user100)
         conn=sqlite3.connect("myvalues.db")
         c=conn.cursor()
@@ -457,7 +429,7 @@ def page3_get():
     cur=conn.cursor()
     cur.execute("Select * From myselect Order by savedate desc Limit 1;")
     selected=cur.fetchone()
-    # print("------page3  Get1---------------------------------------------------")
+    # print("------page3  Get1----------")
     # print(selected)
     c=conn.cursor()
     c.execute("Select id,value,explanation From values100;")
@@ -473,17 +445,16 @@ def page3_get():
     cur.close()
     conn.close()
     # チェック出力
-    # print("----------page3---Get2--------------------------------------------")
+    # print("----------page3---Get2-------")
     # print(value_list)
     # return render_template("value_list.html",value_list=value_list,user_name=user_name)
     return render_template("page3.html",value_list=value_list,)
 
 @app.route("/page3",methods=["POST"])
 def page3_post():
-    # print("----------page3---Post request.form-----------------------------------")
+    # print("----------page3---Post request.form-----------")
     # print(request.form)
-#     ----------page3---Post request.form-----------------------------------
-# ImmutableMultiDict([('select10', '（仮）10ケの項目を選択決定'), ('r1', '1'), ('r2', '2'), ('r3', '1'), ('r4', '2'), ('r5', '1'), ('r6', '2'), ('r7', '1'), ('r8', '2'), ('r9', '1'), ('r10', '2')])
+    # ImmutableMultiDict([('select10', '（仮）10ケの項目を選択決定'), ('r1', '1'), ('r2', '2'), ('r3', '1'), ('r4', '2'), ('r5', '1'), ('r6', '2'), ('r7', '1'), ('r8', '2'), ('r9', '1'), ('r10', '2')])
     user_id=1
     sql0="Insert Into myselect(id,user_id,savedate,del_flag"
     sql1=")Values(null,?,?,0,?,?,?,?,?,?,?,?,?,?"
@@ -492,8 +463,6 @@ def page3_post():
     for key,val in request.form:
         sql0+=","+key
         placeholder.append(int(val))
-    print("------page3  POST---------------------------------------------------")
-    print(sql0+sql1+" "+placeholder)
     conn=sqlite3.connect("myvalues.db")
     c=conn.cursor()
     # 項目指定の更新文
@@ -512,6 +481,34 @@ def page3_post():
     # print(value_list)
     # return render_template("value_list.html",value_list=value_list,user_name=user_name)
     return redirect("/page4")
+
+@app.route("/page4")
+def list4():
+    user_id=1
+    conn=sqlite3.connect("myvalues.db")
+    cur=conn.cursor()
+    cur.execute("Select * From myselect Order by savedate desc Limit 1;")
+    selected=cur.fetchone()
+    # print("------page4  Get1-----")
+    # print(selected)
+    c=conn.cursor()
+    c.execute("Select id,value,explanation From values100;")
+    value_list=[]
+    i = 4
+    for row in c.fetchall():
+        # page3で選択されなかったvalueは0点なのでpage4では不要
+        if selected[i] is not None and not selected[i]==0:
+            # リスト内タプルを使いやすく保存し直す
+            value_list.append({"id":row[0],"task":row[1],"explanation":row[2],"emphasis":selected[i]})
+        i=i+1
+    c.close()
+    cur.close()
+    conn.close()
+    # チェック出力
+    print("----------page4---Get2---")
+    print(value_list)
+    # return render_template("value_list.html",value_list=value_list,user_name=user_name)
+    return render_template("page4.html",value_list=value_list,)
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
