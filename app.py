@@ -452,17 +452,20 @@ def page3_get():
 
 @app.route("/page3",methods=["POST"])
 def page3_post():
-    # print("----------page3---Post request.form-----------")
-    # print(request.form)
+    print("----------page3---Post request.form-----------")
+    print(request.form)
     # ImmutableMultiDict([('select10', '（仮）10ケの項目を選択決定'), ('r1', '1'), ('r2', '2'), ('r3', '1'), ('r4', '2'), ('r5', '1'), ('r6', '2'), ('r7', '1'), ('r8', '2'), ('r9', '1'), ('r10', '2')])
     user_id=1
     sql0="Insert Into myselect(id,user_id,savedate,del_flag"
-    sql1=")Values(null,?,?,0,?,?,?,?,?,?,?,?,?,?"
+    sql1=")Values(null,?,?,0,?,?,?,?,?,?,?,?,?,?);"
     placeholder=[user_id,datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")]
     # フォームデータの取得
-    for key,val in request.form:
-        sql0+=","+key
-        placeholder.append(int(val))
+    for tpl in request.form:
+        if tpl[0]=="r" and request.form[tpl]!="0":
+            sql0+=","+tpl.replace("r","v")
+            placeholder.append(int(request.form[tpl]))
+    print("----------page3---Post sql---------------")
+    print(sql0+sql1,placeholder)
     conn=sqlite3.connect("myvalues.db")
     c=conn.cursor()
     # 項目指定の更新文
