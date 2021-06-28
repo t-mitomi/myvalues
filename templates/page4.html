@@ -4,25 +4,26 @@
 <div class="box-list container-page2">
     <p>
         <h1 class="ranking">選んだ10個の価値観の中でランキングをつけてみよう！</h1>
+        <h4 class="finish">ドラック＆ドロップで大事な順に入れ替えてみよう</h4>
     </p>   
     <div class="first-list">
         <form action="/page4" id="list100form" method="post">
             <table>
-                <tr>
-                    <th>順位</th><th>項目</th><th>説明</th>
-                    <th></th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>順位</th><th>項目</th><th>説明</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="sortdata">
                 {% for item in value_list %}
-                <tr class="value_container">
-                    <td class="order"></td>
-                    <td class="titles">{{item['value']}}</td>
-                    <td class="need">{{item['explanation']}}</td>
-                    <td>
-                        <a href="#" class="rowup">▲上へ </a>
-                        <a href="#" class="rowdown">　▼下へ</a>
-                    </td>
-                </tr>
+                    <tr class="value_container">
+                        <th name="num_data" class="order"></th>
+                        <td class="titles">{{item['value']}}</td>
+                        <td class="need">{{item['explanation']}}</td>
+                    </tr>
                 {% endfor %}
+                </tbody>
             </table>
             <div class ="button-box">
                 <input type="button" value="リスト完成！" class="reset button-shadow ranking_decision">
@@ -34,6 +35,7 @@
     $(".button-box").click(function() {
         $(".precious.reset button-shadow").hide();
         $(".ranking").text("あなたのパーソナルバリューリスト");
+        $(".finish").text("これがあなたのパーソナルバリューリストです！");
     })
 </script>
 {% endblock %}

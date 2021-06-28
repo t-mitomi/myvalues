@@ -1,4 +1,19 @@
 $(function(){
+
+// テーブル行のドラッグ＆ドロップ【JavaScript】
+    $('#sortdata').sortable();
+
+//テーブル行入れ替え後のセル値を更新
+// sortstopイベントをバインド
+$('#sortdata').bind('sortstop',function(){
+    // 番号を設定している要素に対しループ処理
+    $(this).find('[name="num_data"]').each(function(idx){
+      // タグ内に通し番号を設定（idxは0始まりなので+1する）
+    $(this).html(idx+1);
+    });
+    });
+
+
     $('a').on('click', function() {
       return false;
     });
