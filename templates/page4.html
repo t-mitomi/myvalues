@@ -1,35 +1,36 @@
 {% extends "base.html" %}
 {% block content %}
-<<<<<<< HEAD
 <div id="msgarea" style="height:70px;"> 0 件選択中 </div>
-<div class="box-list container-page2">
-    <p>
-        <h1 class="ranking">選んだ10個の価値観の中でランキングをつけてみよう！</h1>
-        <h4 class="finish">ドラック＆ドロップで大事な順に入れ替えてみよう</h4>
-    </p>   
-    <div class="first-list">
-        <form action="/page4" id="list100form" method="post">
-            <table>
-                <thead>
-                    <tr>
-                        <th>順位</th><th>項目</th><th>説明</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="sortdata">
-                {% for item in value_list %}
-                    <tr class="value_container">
-                        <th name="num_data" class="order"></th>
-                        <td class="titles">{{item['value']}}</td>
-                        <td class="need">{{item['explanation']}}</td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-            <div class ="button-box">
-                <input type="button" value="リスト完成！" class="reset button-shadow ranking_decision">
-            </div>
-        </form>
+<div class="container">
+    <div class="box-list">
+        <p>
+            <h1 class="ranking">選んだ10個の価値観の中でランキングをつけてみよう！</h1>
+            <h4 class="finish">ドラック＆ドロップで大事な順に入れ替えてみよう</h4>
+        </p>   
+        <div class="first-list">
+            <form action="/page4" id="list100form" method="post">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>順位</th><th>項目</th><th>説明</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="sortdata">
+                    {% for item in value_list %}
+                        <tr class="value_container">
+                            <th name="num_data" class="order"></th>
+                            <td class="titles">{{item['value']}}</td>
+                            <td class="need">{{item['explanation']}}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <div class ="button-box">
+                    <input type="button" value="リスト完成！" class="reset button-shadow ranking_decision">
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 <script>
@@ -39,84 +40,4 @@
         $(".finish").text("これがあなたのパーソナルバリューリストです！");
     })
 </script>
-=======
-<div id="msgarea" style="height:70px;"> 0 件選択中 
-</div>
-    <div class="container-page2">
-        <div class="first-list">
-            <form action="/page4" id="list100form" method="post">
-                <table>
-                    <tr>
-                        <th>番号</th>
-                        <th>価値</th>
-                        <th>説明</th>
-                        <th><input type="submit" value="（仮）順番決定" id="ranking_decision" name="ranking_decision"></th>
-                    </tr>
-                    {% for item in value_list %}
-                    <tr class="value_container">
-                        <td>{{item['id']}}</td>
-                        <td class="titles">{{item['task']}}</td>
-                        <td class="need">{{item['explanation']}}</td>
-                        <td>
-                            <label><input type="radio" name="r{{item['id']}}" value="2" {% if item['emphasis']==2 %} checked="checked"{% endif %}>大変重要</label>
-                            <label><input type="radio" name="r{{item['id']}}" value="1" {% if item['emphasis']==1 %} checked="checked"{% endif %}>重要</label>
-                            <label><input type="radio" name="r{{item['id']}}" value="0" {% if item['emphasis']==0 %} checked="checked"{% endif %}>重要ではない</label>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </table>
-            </form>
-        </div>
-    </div>
-<!-- {% endblock %} -->
-<div class ="box-list">
-    <p>
-        <h1>選んだ10個の価値観の中でランキングをつけてみよう！</h1>
-    </p>   
-    <div class="flex_container">
-        <div class="first-list">
-            <form action="">
-                <table >
-                    <tr>
-                        <th>順位</th>
-                    </tr>
-                    <tr>
-                        <td class="titles">1</td>
-                    </tr>
-                    <tr>
-                        <td class="titles">2</td>
-                    </tr>
-                </table>
-            </form>
-        </div>
-        <div class="first-list">
-            <form action="">
-
-            </form>
-        </div>
-    </div>
-</div>
-<div class="first-list">
-    <form action="">
-        <table >
-            <tr>
-                <th>id</th><th>項目</th><th>説明</th><th class="precious">▲上へ</th><th class="precious">▼下へ</th>
-            </tr>
-            <tr>
-                <td><input type="hidden" name="r"></td><td class="titles">受容</td><td class="need">ありのままの自分を受け容れること</td>
-                <td><a href="#" class="rowup">▲上へ</a></td>
-                <td><a href="#" class="rowdown">▼下へ</a></td>
-            </tr>
-            <tr>
-                <td>2</td><td class="titles">達成</td><td class="need">重要な何かを成し遂げること</td>
-                <td><a href="#" class="rowup">▲上へ</a></td>
-                <td><a href="#" class="rowdown">▼下へ</a></td>
-            </tr>
-        </table>
-    </form>
-</div>
-<div class ="button-box">
-    <input type="submit" value="リスト完成！" class="reset button-shadow">
-</div>
->>>>>>> 9d8f8d25a723b64a832e916386a16c4888fd3ad1
 {% endblock %}
