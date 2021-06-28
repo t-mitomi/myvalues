@@ -1,12 +1,49 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>page6</title>
-</head>
-<body>
-    page6
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <div class ="box-list">
+        <table>
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>タイトル</th>
+            <th>発売日</th>
+          </tr>
+        </thead>
+        <!--tbodyにID属性を指定します-->
+        <tbody id="sortdata">
+          <tr>
+            <th name="num_data">1</th>
+            <td>スプラトゥーン２</td>
+            <td>2017年7月21日</td>
+          </tr>
+          <tr>
+            <th name="num_data">2</th>
+            <td>スーパーマリオ・オデッセイ</td>
+            <td>2017年10月27日</td>
+          </tr>
+          <tr>
+            <th name="num_data">3</th>
+            <td>アームズ</td>
+            <td>2017年6月16日</td>
+          </tr>
+          <tr>
+            <th name="num_data">4</th>
+            <td>1-2-Switch</td>
+            <td>2017年3月3日</td>
+          </tr>
+          <tr>
+            <th name="num_data">5</th>
+            <td>モンスターハンター XX</td>
+            <td>2017年8月25日</td>
+          </tr>
+        </tbody>
+        </table>
+    </div>
+    </div>
+
+
+
+
+{% endblock %}

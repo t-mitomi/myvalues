@@ -1,6 +1,31 @@
 $(function(){
+<<<<<<< HEAD
+
+// テーブル行のドラッグ＆ドロップ【JavaScript】
+    $('#sortdata').sortable();
+
+//テーブル行入れ替え後のセル値を更新
+=======
+    // テーブル行のドラッグ＆ドロップ
+    $('#sortdata').sortable();
+
+>>>>>>> 9d8f8d25a723b64a832e916386a16c4888fd3ad1
+// sortstopイベントをバインド
+$('#sortdata').bind('sortstop',function(){
+    // 番号を設定している要素に対しループ処理
+    $(this).find('[name="num_data"]').each(function(idx){
+      // タグ内に通し番号を設定（idxは0始まりなので+1する）
+    $(this).html(idx+1);
+    });
+<<<<<<< HEAD
+    });
+
+=======
+});
+>>>>>>> 9d8f8d25a723b64a832e916386a16c4888fd3ad1
+
     $('a').on('click', function() {
-      return false;
+    return false;
     });
     // jQueryでテーブルの行を操作する（移動・削除・追加） https://qiita.com/zinbe/items/f5be42aa47d0960c7195
     $('.rowup').click(function() {
