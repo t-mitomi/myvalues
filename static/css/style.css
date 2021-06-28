@@ -128,13 +128,7 @@ li{
 
 }
 
-.container-page2{
-    background-color:#D4DCEF;
-    font-family: 'M PLUS Rounded 1c', sans-serif;
-    color: #707070;   
-    padding-bottom:80px; /*←footerの高さ*/
 
-}
 
 .container h1{
     font-family: 'M PLUS Rounded 1c', sans-serif;
@@ -142,9 +136,10 @@ li{
 }
 
 .box-list{
+
     padding-top: 100px;
     margin: 0 auto;
-    margin-bottom:30px;
+
 }
 
 .box-list h2{
@@ -169,6 +164,10 @@ li{
 
 
 /* 表のCSS */
+
+.first-list{
+    padding-bottom: 30px;
+}
 
 .first-list table{
     border-collapse: collapse;
