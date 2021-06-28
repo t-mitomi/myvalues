@@ -332,3 +332,38 @@ footer .copyright {
 	letter-spacing: 1px;
     font-family: 'M PLUS Rounded 1c', sans-serif;
 }
+
+
+.top--orange,
+button.top--orange {
+  color: #fff;
+  background-color: #eb6100;
+}
+.top--orange:hover,
+button.top--orange:hover {
+  color: #fff;
+  background: #f56500;
+}
+
+button.top--radius {
+   border-radius: 100vh;
+}
+
+
+.links--orange,
+button.top--orange {
+  color: #fff;
+  background-color: #eb6100;
+}
+.links--orange:hover,
+button.links--orange:hover {
+  color: #fff;
+  background: #f56500;
+}
+
+button.links--radius {
+   border-radius: 100vh;
+}
+
+
+
