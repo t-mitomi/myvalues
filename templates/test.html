@@ -1,6 +1,9 @@
 <!-- ファイル個別情報 -->
 {% extends "base.html" %}
 {% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <div class="container-page2">
     <div class="first-list">
         <div id="msgarea" >メッセージ：</div>
@@ -8,25 +11,25 @@
             <input type="submit" value="select100" name="select100" style="width:300px;">
             <table>
                 <tr">
-                    <th>番号</th><th>価値</th><th>説明</th><th><input type="submit" value="（仮）優先10項目を決定する" id="ranking_decision" name="ranking_decision"></th>
+                    <th>番号</th><th>価値</th><th>説明</th><th><input type="submit" value="（仮）優先10項目を決定する" class="ranking_decision"></th>
                 </tr>
                 {% for item in value_list %}
-                <tr class="value_container">
-                    <td>{{item['id']}}</td>
+                <tr class="value_container" id="r{{item['id']}}">
+                    <td class="order"></td>
                     <td class="titles">{{item['task']}}</td>
                     <td class="need">{{item['explanation']}}</td>
                     <td>
                     <input type="button" class="rowup" value="△">
-                    <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="2">大変重要</label>
+                    <!-- <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="2">大変重要</label>
                     <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="1">重要</label>
-                    <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="0" checked>重要ではない</label>
+                    <label><input type="radio" style="width: 50px;" name="r{{item['id']}}" value="0" checked>重要ではない</label> -->
                     <input type="button" class="rowdown" value="▽">
+                    <input type="hidden" name="r{{item['id']}}" value="">
                     </td>
                 </tr>
                 {% endfor %}
             </table>
         </form>
-<img src="../static/img/myvalues_keshi.png" alt="">
     </div>
 </div>
 {% endblock %}

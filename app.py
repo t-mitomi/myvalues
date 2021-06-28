@@ -401,7 +401,10 @@ def page2_post():
         user100=[user_id]
         user100.append(datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S"))
         user100.append(0)
+        just10=0
         for n in range(1,101):
+            if n>0:
+                just10+=1
             user100.append(request.form.get("r"+str(n)))
         # print("---")
         # print(user100)
@@ -418,7 +421,10 @@ def page2_post():
         conn.commit()# 更新クエリはトランザクションをコミットする
         c.close()# カーソル終了
         conn.close()# 接続終了
-        return redirect("/page3")
+        if just10==10:
+            return redirect("/page4")
+        else:
+            return redirect("/page3")
 
 
 @app.route("/page3",methods=["GET"])
@@ -452,8 +458,8 @@ def page3_get():
 
 @app.route("/page3",methods=["POST"])
 def page3_post():
-    print("----------page3---Post request.form-----------")
-    print(request.form)
+    # print("----------page3---Post request.form-----------")
+    # print(request.form)
     # ImmutableMultiDict([('select10', '（仮）10ケの項目を選択決定'), ('r1', '1'), ('r2', '2'), ('r3', '1'), ('r4', '2'), ('r5', '1'), ('r6', '2'), ('r7', '1'), ('r8', '2'), ('r9', '1'), ('r10', '2')])
     user_id=1
     sql0="Insert Into myselect(id,user_id,savedate,del_flag"
@@ -464,8 +470,8 @@ def page3_post():
         if tpl[0]=="r" and request.form[tpl]!="0":
             sql0+=","+tpl.replace("r","v")
             placeholder.append(int(request.form[tpl]))
-    print("----------page3---Post sql---------------")
-    print(sql0+sql1,placeholder)
+    # print("----------page3---Post sql---------------")
+    # print(sql0+sql1,placeholder)
     conn=sqlite3.connect("myvalues.db")
     c=conn.cursor()
     # 項目指定の更新文
@@ -480,9 +486,6 @@ def page3_post():
     c.close()
     # 接続終了
     conn.close()
-    # チェック出力
-    # print(value_list)
-    # return render_template("value_list.html",value_list=value_list,user_name=user_name)
     return redirect("/page4")
 
 @app.route("/page4")
@@ -490,7 +493,7 @@ def list4():
     user_id=1
     conn=sqlite3.connect("myvalues.db")
     cur=conn.cursor()
-    cur.execute("Select * From myselect Order by savedate desc Limit 1;")
+    cur.execute("Select * From myselect Order by savedate desc  Limit 1;")
     selected=cur.fetchone()
     # print("------page4  Get1-----")
     # print(selected)
@@ -502,20 +505,19 @@ def list4():
         # page3で選択されなかったvalueは0点なのでpage4では不要
         if selected[i] is not None and not selected[i]==0:
             # リスト内タプルを使いやすく保存し直す
-            value_list.append({"id":row[0],"task":row[1],"explanation":row[2],"emphasis":selected[i]})
+            value_list.append({"id":row[0],"value":row[1],"explanation":row[2],"emphasis":selected[i]})
         i=i+1
     c.close()
     cur.close()
     conn.close()
     # チェック出力
-    print("----------page4---Get2---")
-    print(value_list)
+    # print("----------page4---Get2---")
+    # print(value_list)
     # return render_template("value_list.html",value_list=value_list,user_name=user_name)
     return render_template("page4.html",value_list=value_list,)
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 
 # ここの下もおまじない（いじるな！）
 if __name__=='__main__':
@@ -523,6 +525,3 @@ if __name__=='__main__':
 
 # debug=True とすると、記述ミスは丁寧に英語表示される！！
 # 実行方法は３つ コマンドで python ファイル名.py macはpython3 ファイル名.py
-
-
-
