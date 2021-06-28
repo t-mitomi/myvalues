@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div id="msgarea" style="height:70px;"> 0 件選択中 </div>
+<<<<<<< HEAD
 <div class="container">
     <div class="box-list">
         <p>
@@ -31,6 +32,36 @@
                 </div>
             </form>
         </div>
+=======
+<div class="box-list container-page2">
+    <p>
+        <h1 class="ranking">選んだ10個の価値観の中でランキングをつけてみよう！</h1>
+        <h4 class="finish">ドラック＆ドロップで大事な順に入れ替えてみよう</h4>
+    </p>   
+    <div class="first-list">
+        <form action="/page4" id="list100form" method="post">
+            <table>
+                <thead>
+                    <tr>
+                        <th>順位</th><th>項目</th><th>説明</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="sortdata">
+                {% for item in value_list %}
+                    <tr class="value_container">
+                        <th name="num_data" class="order"></th>
+                        <td class="titles">{{item['value']}}</td>
+                        <td class="need">{{item['explanation']}}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div class ="button-box">
+                <input type="button" value="リスト完成！" class="reset button-shadow ranking_decision">
+            </div>
+        </form>
+>>>>>>> 3eef36e1386424d0ee299c28d0b96a5664042b91
     </div>
 </div>
 <script>
