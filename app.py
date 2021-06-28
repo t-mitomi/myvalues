@@ -370,6 +370,10 @@ def list1():
 def list5():
     return render_template("page5.html")
 
+@app.route("/page6")
+def list6():
+    return render_template("page6.html")
+
 # ４０４ページ
 # @app.errorhandler(404)
 # def not_found():
