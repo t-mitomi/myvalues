@@ -403,11 +403,11 @@ def page2_post():
         user100.append(0)
         just10=0
         for n in range(1,101):
-            if n>0:
+            if int(request.form.get("r"+str(n)))>0:
                 just10+=1
             user100.append(request.form.get("r"+str(n)))
-        # print("---")
-        # print(user100)
+        # print("---page2----")
+        # print(just10)
         conn=sqlite3.connect("myvalues.db")
         c=conn.cursor()
         # オートインクリメントに挿入するには、nullを挿入する
