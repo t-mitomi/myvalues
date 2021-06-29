@@ -56,18 +56,21 @@ img {
 
 /* フォントの指定です。コピペしていただいて構いません。 */
 body {
-	font-family: "Noto Sans Japanese", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", "Meiryo", "HGPｺﾞｼｯｸM", "Osaka", "ＭＳ Ｐゴシック", sans-serif, Century Gothic, Arial,"M PLUS Rounded 1c";
+	font-family: "Noto Sans Japanese", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", "YuGothic", "メイリオ", "Meiryo", "HGPｺﾞｼｯｸM", "Osaka", "ＭＳ Ｐゴシック", sans-serif, "Century Gothic", "Arial","M PLUS Rounded 1c";
+    background-color:#C1E1D2;
+
 }
 
 
 
 .site-header {
 	height: 60px;
-	background: #F7F8F5;
+	background: #F5F0E6;
 	text-align: center;
 	position: fixed;
 	width: 100%;
     display: flex;
+
 }
 
 header img{ 
@@ -102,12 +105,12 @@ li{
     margin:10px;
     font-family: 'M PLUS Rounded 1c', sans-serif;
     font-weight: 600;
-    color:#707070;
+    color:#524436;
 }
 
 
 .container-all{
-    background-color:#D4DCEF;
+    background-color:#C1E1D2;
     width: 100%;
     height: auto !important;
     height: 100%;
@@ -117,9 +120,9 @@ li{
 
 
 .container{
-    background-color:#D4DCEF;
+    background-color:#C1E1D2;
     font-family: 'M PLUS Rounded 1c', sans-serif;
-    color: #707070; 
+    color: #524436; 
     padding-bottom:80px; /*←footerの高さ*/
     height: 100%;
 
@@ -132,7 +135,7 @@ li{
 
 .container h1{
     font-family: 'M PLUS Rounded 1c', sans-serif;
-    color: #707070; 
+    color: #524436; 
 }
 
 .box-list{
@@ -177,12 +180,12 @@ li{
 }
 
 .first-list table td{
-    background: #F7F8F5;
+    background: #F5F0E6;
 
 }
 
 .first-list table tr:nth-child(odd) td {
-	background: #D4DCEF;
+	background: #C1E1D2;
 }
     
 
@@ -228,14 +231,14 @@ margin-right: 10px;
 
 .button-shadow {
     font-family: 'M PLUS Rounded 1c', sans-serif;
-    color:#707070;
+    color:#524436;
     text-align: center;
     box-sizing: border-box;
     display: block;
     max-width: 200px;
     width: 100%;
     margin: 0 auto;
-    background: #F8F09B; /* 色変更可能 */
+    background: #EF7B51; /* 色変更可能 */
     font-weight: bold;
     padding: 13px 10px 10px;
     border-radius: 30px;
@@ -247,7 +250,7 @@ margin-right: 10px;
 .button-shadow:active, .button-shadow:focus {
     border-bottom-width: 0;
     margin-top: 5px;
-    background: #E5E460; /* 色変更可能 */
+    background: #EF7B51; /* 色変更可能 */
 }
 
 @keyframes flash {
@@ -258,7 +261,7 @@ margin-right: 10px;
 
 footer {
 	height: 80px;
-	background: #F7F8F5;
+	background: #F0E7D8;
 	width: 100%;
 }
 
@@ -271,7 +274,7 @@ footer .copyright {
 }
 
 h1.p1_title{
-    color: #050505;
+    color: #524436;
     text-align: center;
     height: 200px 0;
     
@@ -279,7 +282,7 @@ h1.p1_title{
 
 
 p.p1_description{
-    color: #65676b;
+    color: #524436;
     text-align: center;
     
 
@@ -287,7 +290,7 @@ p.p1_description{
 
 h2.p1_list{
 
-    color: #050505;
+    color: #524436;
     text-align: center;
 }
 
@@ -318,14 +321,15 @@ h2.p1_list{
 
 footer {
 	height: 80px;
-	background: #F7F8F5;
+	background: #F5F0E6;
 	width: 100%;
     position: fixed;
     bottom: 0;
+
 } 
 
 footer .copyright {
-	color: #acacac;
+	color: #524436;
 	font-size: 12px;
 	padding-top: 30px;
 	letter-spacing: 1px;
@@ -333,36 +337,30 @@ footer .copyright {
 }
 
 
-.top--orange,
-button.top--orange {
-  color: #fff;
-  background-color: #eb6100;
-}
-.top--orange:hover,
-button.top--orange:hover {
-  color: #fff;
-  background: #f56500;
+.top-menu {
+
+font-family: 'M PLUS Rounded 1c', sans-serif;
+color: #524436;
+border-radius: 20px;
+background: #F5F0E6;
+box-shadow:  2px 2px 5px #dad6cd,
+             -2px -2px 5px #fffff0;
+padding: 3px 5px 5px;
 }
 
-button.top--radius {
-   border-radius: 100vh;
+.top-menu :hover {
+font-family: 'M PLUS Rounded 1c', sans-serif;
+color: #524436;
+border-radius: 20px;
+background: #F5F0E6;
+box-shadow:  2px 2px 5px #dad6cd,
+             -2px -2px 5px #fffff0;
+padding: 3px 5px 5px;
 }
 
 
-.links--orange,
-button.top--orange {
-  color: #fff;
-  background-color: #eb6100;
-}
-.links--orange:hover,
-button.links--orange:hover {
-  color: #fff;
-  background: #f56500;
-}
 
-button.links--radius {
-   border-radius: 100vh;
-}
+
 
 
 
