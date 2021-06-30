@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>page1</title>
-</head>
-<body>
-    page1
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+
+    <h1 class="banner_text">参考リンク</h1>
+    <div class="top-banner">
+        <a href="https://yuchrszk.blogspot.com/2018/07/2.html" target="_blank"><img src="../static/img/myvalueslogo.png"  class="banner_img"><p>パレオな男</p></a>
+        <a href="https://www.azusa.me/blog/?p=2531" target="_blank"><img src="../static/img/myvalueslogo.png"  class="banner_img"><p>高徳ネコ先生の記事 【毒親からの悪影響を治療する】</p></a>
+        <a href="https://everyday-evident.net/personal-value-card-sort-activity/" target="_blank"><img src="../static/img/myvalueslogo.png"  class="banner_img"><p>healthsick</p></a>
+        <a href="https://mento-re.com/entry/mentore/katikan/sinndan" target="_blank"><img src="../static/img/myvalueslogo.png"  class="banner_img"><p>めんと～れ 森林浴とメンタルケアのブログ</p></a>
+    </div>
+
+    
+{% endblock %}
