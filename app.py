@@ -540,7 +540,7 @@ def list4():
     conn.close()
     # チェック出力
     # print("----------page4---Get2---")
-    print(value_list)
+    # print(value_list)
     # return render_template("value_list.html",value_list=value_list,user_name=user_name)
     return render_template("page4.html",value_list=value_list,)
 

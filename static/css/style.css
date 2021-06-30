@@ -182,7 +182,7 @@ li{
 
 .first-list tbody td,.first-list tbody th{
 
-    background: #e6f3ed;
+    background: #ebfaf3;
 
 }
 
@@ -247,6 +247,10 @@ margin-right: 10px;
     border-radius: 30px;
     border-bottom: 5px solid rgba(0,0,0,0.3);
 }
+.button-shadow.disable {
+    background: #964a2f; /* 色変更可能 */
+}
+
 .button-shadow:hover {
     animation: 1s flash;
 }
@@ -353,14 +357,36 @@ padding: 3px 5px 5px;
 }
 
 .fixedmsg{
-    background-color: #fff;
+    height: 100px;
+    width: 145px;
+    /* border: 1px ridge ; */
+    background-image: url(../img/color_logo.png);
+    background-size: cover;
+    /* background-image: url(../img/img\ \(1\).jpg); */
+    /* background-color: #fff; */
+    /* background-color: #fff; */
     position:fixed;
-    top: 300px;
-    left:200px;
+    top: 160px;
+    left:15%;
+}
+.divmsg{
+    /* opacity:0.8; */
+    position:relative;
+    left:75px;
+    top: 9px;
+    height: 5px;
+    width: 51px;
+    text-align: center;
+    line-height: 1.3;
 }
 
+.dandd:hover{
+    cursor: grab;
+}
 
-
+.finish{
+    margin-top: 13px;
+}
 
 
 .banner_text {
