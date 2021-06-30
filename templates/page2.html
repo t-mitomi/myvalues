@@ -9,14 +9,14 @@
         <div class="first-list">
             <form action="/page2" id="list100form" method="post">
                 <p>“とても大事” や “大事” の項目を あわせて １０個以上選んでね！</p>
-                <div id="info">
+                <div id="info topmsg">
                     <h4>インフォ</h4>
                     <p class="msgarea">“とても大事” や “大事” の項目を あわせて １０個以上選んでね！</p>
                 </div>
-                <!-- <div draggable="true" id="info" class="fixedmsg">
+                <div id="info" class="fixedmsg">
                     <h4>インフォ</h4>
                     <p class="msgarea">“とても大事” や “大事” の項目を あわせて １０個以上選んでね！</p>
-                </div> -->
+                </div>
                 <table>
                     <thead>
                         <tr>
@@ -35,13 +35,13 @@
                             <td class="titles">{{item['task']}}</td>
                             <td class="need">{{item['explanation']}}</td>
                             <td>
-                                <label><input type="radio" name="r{{item['id']}}" value="2"> </label>
+                                <label>　<input type="radio" name="r{{item['id']}}" value="2">　</label>
                             </td>
                             <td>
-                                <label><input type="radio" name="r{{item['id']}}" value="1"> </label>
+                                <label>　<input type="radio" name="r{{item['id']}}" value="1">　</label>
                             </td>
                             <td>
-                                <label><input type="radio" name="r{{item['id']}}" value="0" checked></label>
+                                <label>　<input type="radio" name="r{{item['id']}}" value="0" checked>　</label>
                             </td>
                         </tr>
                     {% endfor %}
@@ -51,7 +51,7 @@
                 <input type="submit" value="絞り込む" id="selected" name="selected" class="reset button-shadow">
                 </div>
             </form>
-            <div id="info">
+            <div id="info bottommsg">
                 <h4>インフォ</h4>
                 <p class="msgarea">“とても大事” や “大事” の項目を あわせて １０個以上選んでね！</p>
             </div>

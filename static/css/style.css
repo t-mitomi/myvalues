@@ -355,7 +355,7 @@ padding: 3px 5px 5px;
 .fixedmsg{
     background-color: #fff;
     position:fixed;
-    top: 300px;
+    top: 170px;
     left:200px;
     
 }
@@ -364,7 +364,9 @@ padding: 3px 5px 5px;
     cursor: grab;
 }
 
-
+.finish{
+    margin-top: 13px;
+}
 
 
 
