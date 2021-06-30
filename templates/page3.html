@@ -16,11 +16,11 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>番号</th><th>価値</th><th>説明</th><th></th>
+                            <th>番号</th><th>価値</th><th>説明</th><th><input type="submit" value="10個に絞り込む" class="select10"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for item in value_list %}
+                    {% for item in value_list %}
                         <tr class="value_container">
                             <td>{{item['id']}}</td>
                             <td class="titles">{{item['task']}}</td>
@@ -31,8 +31,8 @@
                                 <label class="last"><input type="radio" name="r{{item['id']}}" value="0" {% if item['emphasis']==0 %} checked="checked"{% endif %}>重要ではない</label>
                             </td>
                         </tr>
-                        {% endfor %}
-                    </tbody>
+                    {% endfor %}
+                </tbody>
                 </table>
                 <div class ="button-box">
                     <input type="submit" value="10個に絞り込む" class="reset button-shadow select10">

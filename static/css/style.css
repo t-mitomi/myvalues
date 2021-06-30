@@ -128,10 +128,6 @@ li{
     color: #524436; 
     padding-bottom:80px; /*←footerの高さ*/
     height: 100%;
-
-
-
-
 }
 
 
@@ -158,6 +154,7 @@ li{
     margin-top: 20px;
     width: 720px;
     margin: 0 auto;
+    line-height: 160%;
 }
 
 
@@ -166,6 +163,7 @@ li{
     margin-top: 20px;
 
 }
+
 
 
 
@@ -183,7 +181,8 @@ li{
 }
 
 .first-list table td{
-    background: #F5F0E6;
+
+    background: #C1E1D2;
 
 }
 
@@ -193,8 +192,8 @@ li{
     
 
 .precious {
-    font-size: x-small;
-    width:50px;
+    font-size: small;
+    width:70px;
 }
 
 
@@ -228,7 +227,8 @@ margin-right: 10px;
 
 .button-box img{
     align-items: baseline;
-    width:200px            }
+    width:200px;
+}
 
 /* ボタンの装飾 */
 
@@ -264,7 +264,7 @@ margin-right: 10px;
 
 footer {
 	height: 80px;
-	background: #F0E7D8;
+	background: #F5F0E6;
 	width: 100%;
 }
 
@@ -341,25 +341,17 @@ footer .copyright {
 
 
 .top-menu {
-
+width: 150px;
+height: 30px;
 font-family: 'M PLUS Rounded 1c', sans-serif;
 color: #524436;
 border-radius: 20px;
 background: #F5F0E6;
-box-shadow:  2px 2px 5px #dad6cd,
-             -2px -2px 5px #fffff0;
+box-shadow:  2px 2px 5px #dad6cd;
+             /* -2px -2px 5px #fffff0; */
 padding: 3px 5px 5px;
 }
 
-.top-menu :hover {
-font-family: 'M PLUS Rounded 1c', sans-serif;
-color: #524436;
-border-radius: 20px;
-background: #F5F0E6;
-box-shadow:  2px 2px 5px #dad6cd,
-             -2px -2px 5px #fffff0;
-padding: 3px 5px 5px;
-}
 
 
 
