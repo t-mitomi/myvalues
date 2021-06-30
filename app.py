@@ -399,7 +399,7 @@ def page2_get():
 
 @app.route("/page2",methods=["POST"])
 def page2_post():
-        user_id=1
+        user_id=1#ログインなしのユーザーidは 1。
         # print("---")
         # print(request.form.get("select100"))
         user100=[user_id]
@@ -407,9 +407,10 @@ def page2_post():
         user100.append(0)
         just10=0
         for n in range(1,101):
-            if n>0:
+            valu=int(request.form.get("r"+str(n)))
+            if valu>0:
                 just10+=1
-            user100.append(request.form.get("r"+str(n)))
+            user100.append(valu)
         # print("---")
         # print(user100)
         conn=sqlite3.connect("myvalues.db")
@@ -504,19 +505,21 @@ def list4():
     c=conn.cursor()
     c.execute("Select id,value,explanation From values100;")
     value_list=[]
-    i = 4
+    i=4
+    j=1
     for row in c.fetchall():
         # page3で選択されなかったvalueは0点なのでpage4では不要
         if selected[i] is not None and not selected[i]==0:
             # リスト内タプルを使いやすく保存し直す
-            value_list.append({"id":row[0],"value":row[1],"explanation":row[2],"emphasis":selected[i]})
+            value_list.append({"id":row[0],"value":row[1],"explanation":row[2],"emphasis":selected[i],"best":j})
+            j=j+1
         i=i+1
     c.close()
     cur.close()
     conn.close()
     # チェック出力
     # print("----------page4---Get2---")
-    # print(value_list)
+    print(value_list)
     # return render_template("value_list.html",value_list=value_list,user_name=user_name)
     return render_template("page4.html",value_list=value_list,)
 

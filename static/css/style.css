@@ -55,10 +55,13 @@ img {
 /* --------------------------------------------------- */
 
 /* フォントの指定です。コピペしていただいて構いません。 */
-body {
-	font-family: "Noto Sans Japanese", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", "YuGothic", "メイリオ", "Meiryo", "HGPｺﾞｼｯｸM", "Osaka", "ＭＳ Ｐゴシック", sans-serif, "Century Gothic", "Arial","M PLUS Rounded 1c";
-    background-color:#C1E1D2;
+html{
+	height: 100%;
+}
 
+body {
+	height: 100%;
+	font-family: "Noto Sans Japanese", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", "YuGothic", "メイリオ", "Meiryo", "HGPｺﾞｼｯｸM", "Osaka", "ＭＳ Ｐゴシック", sans-serif, "Century Gothic", "Arial","M PLUS Rounded 1c";
 }
 
 
@@ -125,10 +128,6 @@ li{
     color: #524436; 
     padding-bottom:80px; /*←footerの高さ*/
     height: 100%;
-
-
-
-
 }
 
 
@@ -187,8 +186,8 @@ li{
 
 }
 
-.first-list table tr:nth-child(odd) td {
-    background: #F5F0E6;
+.first-list table tr:nth-child(even) td {
+	background: #C1E1D2;
 }
     
 
@@ -228,7 +227,8 @@ margin-right: 10px;
 
 .button-box img{
     align-items: baseline;
-    width:200px            }
+    width:200px;
+}
 
 /* ボタンの装飾 */
 
@@ -347,8 +347,8 @@ font-family: 'M PLUS Rounded 1c', sans-serif;
 color: #524436;
 border-radius: 20px;
 background: #F5F0E6;
-box-shadow:  2px 2px 5px #dad6cd,
-             -2px -2px 5px #fffff0;
+box-shadow:  2px 2px 5px #dad6cd;
+             /* -2px -2px 5px #fffff0; */
 padding: 3px 5px 5px;
 }
 

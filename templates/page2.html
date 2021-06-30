@@ -8,9 +8,20 @@
         </p>
         <div class="first-list">
             <form action="/page2" id="list100form" method="post">
+                <p>“とても大事” や “大事” の項目を あわせて １０個以上選んでね！</p>
+                <div id="info">
+                    <h4>インフォ</h4>
+                    <p class="msgarea">“とても大事” や “大事” の項目を あわせて １０個以上選んでね！</p>
+                </div>
                 <table>
                     <thead>
                         <tr class="value_container">
+                            <th>番号</th><th class="titles">価値</th><th class="need">説明</th><th></th><th></th><th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in value_list %}
+                        <tr>
                             <th>番号</th>
                             <th class="titles">価値</th>
                             <th class="need">説明</th>
@@ -41,10 +52,34 @@
                 <div class ="button-box">
                 <input type="submit" value="絞り込む" id="selected" name="selected" class="reset button-shadow">
                 </div>
-                <p>"とても大事"の項目は10個以上選んでね！</p>
             </form>
+            <div id="info">
+                <h4>インフォ</h4>
+                <p class="msgarea">“とても大事” や “大事” の項目を あわせて １０個以上選んでね！</p>
+            </div>
         </div>  
-
     </div>
 </div>
+<script>
+    $("#selected").prop('disabled', true);
+    select_check_p2();
+    $('input[type="radio"]').on('change',select_check_p2);
+    function select_check_p2(){
+        // 複数要素に同じ処理 $('セレクタ').each(function(index, element){ 〜 });
+        var select_count=0;
+        $('input:radio:checked').each(function(idx,elem){
+            if(parseInt(elem.value)>0){
+                select_count+=1;
+            }
+            if(select_count>=10){
+                $("#selected").prop('disabled', false);
+            }else{
+                $("#selected").prop('disabled', true);
+            }
+            console.log(select_count+" 個選択中 " );
+            $(".msgarea").text("現在 "+select_count+" 個選択中 ")
+        });
+        return false;
+    }
+</script>
 {% endblock %}
