@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-<div id="msgarea" style="height:70px;"> 0 件選択中 </div>
 <div class="container">
     <div class="box-list">
         <p>
@@ -12,16 +11,20 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>順位</th><th>項目</th><th>説明</th>
-                            <th></th>
+                            <th>順位</th><th>項目</th><th>説明</th><th></th>
                         </tr>
                     </thead>
                     <tbody id="sortdata">
                     {% for item in value_list %}
                         <tr class="value_container">
-                            <th name="num_data" class="order"></th>
+                            <th name="num_data" class="order">{{item['best']}}</th>
                             <td class="titles">{{item['value']}}</td>
                             <td class="need">{{item['explanation']}}</td>
+                            <td class="updown">
+                                <a href="#" class="rowup">△　</a>
+                                <a href="#" class="rowdown">▽　</a>
+                                <input type="hidden" name="r{{item['id']}}" value="">
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -35,7 +38,7 @@
 </div>
 <script>
     $(".button-box").click(function() {
-        $(".precious.reset button-shadow").hide();
+        $(".precious.reset button-shadow,.updown").hide();
         $(".ranking").text("あなたのパーソナルバリューリスト");
         $(".finish").text("これがあなたのパーソナルバリューリストです！");
     })

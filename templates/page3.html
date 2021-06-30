@@ -8,29 +8,66 @@
         </p>
         <div class="first-list">
             <form action="/page3" id="list100form" method="post">
+                <p>“とても大事” や “大事” の項目をあわせて ちょうど１０個 選んでね！</p>
+                <div id="info">
+                    <h4>インフォ</h4>
+                    <p class="msgarea">“とても大事” や “大事” の項目をあわせて ちょうど１０個 選んでね！</p>
+                </div>
                 <table>
-                    <tr>
-                        <th>番号</th><th>価値</th><th>説明</th><th><input type="submit" value="10個に絞り込む" class="select10"></th>
-                    </tr>
-                    {% for item in value_list %}
-                    <tr class="value_container">
-                        <td>{{item['id']}}</td>
-                        <td class="titles">{{item['task']}}</td>
-                        <td class="need">{{item['explanation']}}</td>
-                        <td>
-                            <label><input type="radio" name="r{{item['id']}}" value="2" {% if item['emphasis']==2 %} checked="checked"{% endif %}>大変重要</label>
-                            <label><input type="radio" name="r{{item['id']}}" value="1" {% if item['emphasis']==1 %} checked="checked"{% endif %}>重要</label>
-                            <label class="last"><input type="radio" name="r{{item['id']}}" value="0" {% if item['emphasis']==0 %} checked="checked"{% endif %}>重要ではない</label>
-                        </td>
-                    </tr>
-                    {% endfor %}
+                    <thead>
+                        <tr>
+                            <th>番号</th><th>価値</th><th>説明</th><th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in value_list %}
+                        <tr class="value_container">
+                            <td>{{item['id']}}</td>
+                            <td class="titles">{{item['task']}}</td>
+                            <td class="need">{{item['explanation']}}</td>
+                            <td>
+                                <label><input type="radio" name="r{{item['id']}}" value="2" {% if item['emphasis']==2 %} checked="checked"{% endif %}>大変重要</label>
+                                <label><input type="radio" name="r{{item['id']}}" value="1" {% if item['emphasis']==1 %} checked="checked"{% endif %}>重要</label>
+                                <label class="last"><input type="radio" name="r{{item['id']}}" value="0" {% if item['emphasis']==0 %} checked="checked"{% endif %}>重要ではない</label>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
                 <div class ="button-box">
                     <input type="submit" value="10個に絞り込む" class="reset button-shadow select10">
                 </div>
-                <p>"とても重要"と"重要"項目が合わせて10個になるように選んでね！</p>
+                <p>“とても大事” や “大事” の項目をあわせて ちょうど１０個 選んでね！</p>
+                <div id="info">
+                    <h4>インフォ</h4>
+                    <p class="msgarea">“とても大事” や “大事” の項目をあわせて ちょうど１０個 選んでね！</p>
+                </div>
             </form>
         </div>
     </div>
 </div>
+<script>
+if($("tr").length!=11){
+    $(".select10").prop('disabled', true);
+}
+select10();
+$('input[type="radio"]').on('change',select10);
+function select10(){
+    // 複数要素に同じ処理 $('セレクタ').each(function(index, element){ 〜 });
+    var select_count=0;
+    $('input:radio:checked').each(function(idx,elem){
+        if(parseInt(elem.value)>0){
+            select_count+=1;
+        }
+        if(select_count==10){
+            $(".select10").prop('disabled', false);
+        }else{
+            $(".select10").prop('disabled', true);
+        }
+        console.log(select_count+" 個選択中 " );
+        $(".msgarea").text("現在 "+select_count+" 個選択中 ")
+    });
+    return false;
+}
+</script>
 {% endblock %}
