@@ -13,9 +13,7 @@
                     <h4>インフォ</h4>
                     <p class="msgarea">“とても大事” や “大事” の項目を あわせて １０個以上選んでね！</p>
                 </div>
-                <div id="info" class="fixedmsg">
-                    <h4>インフォ</h4>
-                    <p class="msgarea">“とても大事” や “大事” の項目を あわせて １０個以上選んでね！</p>
+                <div id="info" class="fixedmsg"><div class="divmsg msgarea"></div>
                 </div>
                 <table>
                     <thead>
@@ -48,7 +46,7 @@
                     </tbody>
                 </table>
                 <div class ="button-box">
-                <input type="submit" value="絞り込む" id="selected" name="selected" class="reset button-shadow">
+                <input type="submit" value="絞り込む" id="selected" name="selected" class="reset button-shadow disable">
                 </div>
             </form>
             <div id="info bottommsg">
@@ -70,12 +68,12 @@
                 select_count+=1;
             }
             if(select_count>=10){
-                $("#selected").prop('disabled', false);
+                $("#selected").prop('disabled', false).removeClass('disable');
             }else{
-                $("#selected").prop('disabled', true);
+                $("#selected").prop('disabled', true).addClass('disable');
             }
             console.log(select_count+" 個選択中 " );
-            $(".msgarea").text("現在 "+select_count+" 個選択中 ")
+            $(".msgarea").text("現在 "+select_count+" 個選択 中")
         });
         return false;
     }
