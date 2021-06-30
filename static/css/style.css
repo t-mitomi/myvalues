@@ -182,7 +182,7 @@ li{
 
 .first-list tbody td,.first-list tbody th{
 
-    background: #e6f3ed;
+    background: #ebfaf3;
 
 }
 
@@ -357,8 +357,12 @@ padding: 3px 5px 5px;
     position:fixed;
     top: 300px;
     left:200px;
+    
 }
 
+.dandd:hover{
+    cursor: grab;
+}
 
 
 
