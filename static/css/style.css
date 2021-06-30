@@ -379,14 +379,14 @@ padding: 3px 5px 5px;
 	display: flex;
 	padding-top: 50px;
 }
-.top-banner a {
-	width: calc(100%/4);/*←画像を横に4つ並べる場合*/
-	padding:0 5px;/*←画像の左右に5pxの余白を入れる場合*/
+.top-banner button {
+	width: calc(100%/4);
+	padding:0 5px;
 	box-sizing:border-box;
 }
 .top-banner a img {
-	max-width:100%; /*画像のはみだしを防ぐ*/
-	height: auto; /*画像の縦横比を維持 */
+	max-width:100%; 
+	height: auto; 
 	
 }
 

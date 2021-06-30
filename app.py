@@ -378,6 +378,23 @@ def list6():
 def list7():
     return render_template("page7.html")
 
+@app.route("/pareo")
+def pareo():
+  return redirect("https://yuchrszk.blogspot.com/2018/07/2.html", code=301)
+
+@app.route("/neko")
+def neko():
+  return redirect("https://www.azusa.me/blog/?p=2531", code=301)
+
+@app.route("/health")
+def health():
+  return redirect("https://everyday-evident.net/personal-value-card-sort-activity", code=301)
+
+
+@app.route("/mental")
+def mental():
+  return redirect("https://mento-re.com/entry/mentore/katikan/sinndan", code=301)
+
 # ４０４ページ
 # @app.errorhandler(404)
 # def not_found():
