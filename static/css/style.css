@@ -361,7 +361,7 @@ padding: 3px 5px 5px;
 
 
 
-
+/* ---------参考リンク-------------- */
 
 .banner_text {
     font-family: 'M PLUS Rounded 1c', sans-serif;
@@ -387,4 +387,12 @@ padding: 3px 5px 5px;
 .banner_img{
     width: 70px;
     height: 50px;
+}
+
+
+
+/* -----------Twitter投稿------------------- */
+
+.twitter-share-button {
+    padding-top: 25px;
 }
