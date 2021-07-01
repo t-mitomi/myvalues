@@ -64,6 +64,8 @@ body {
 	font-family: "Noto Sans Japanese", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", "YuGothic", "メイリオ", "Meiryo", "HGPｺﾞｼｯｸM", "Osaka", "ＭＳ Ｐゴシック", sans-serif, "Century Gothic", "Arial","M PLUS Rounded 1c";
 }
 
+.br-sp {display: none; }
+
 
 
 .site-header {
@@ -87,7 +89,7 @@ header img{
     padding-top: 5px;
 }
 
-.logoimage{
+.logo-image{
     padding-top: 10px;
 }
 
@@ -222,6 +224,14 @@ margin-right: 10px;
 .last{
     margin-right:20px;
 }
+
+.pc-dsp { display:block; }
+
+.sp-dsp { display:none; }
+
+
+
+
 
 .button-box{ margin-top: 30px;}
 

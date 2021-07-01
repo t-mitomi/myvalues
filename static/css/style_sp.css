@@ -1,0 +1,352 @@
+@charset "UTF-8";
+
+
+    
+
+html {
+	overflow-y: scroll;
+}
+/*行の高さをフォントサイズと同じにして余白をリセットしています
+（※padding:0;は省略しても違いが見られなかったためmargin:0;のみ）*/
+body {
+    line-height:1;
+    margin:0;
+}
+ 
+/*ブロックレベル要素の余白をリセットしています
+（※padding:0;は省略しても違いが見られなかったためmargin:0;のみ）*/
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+ 
+/*HTML5での新規追加要素のデフォルトをブロック要素へ変更しています
+（※Android2.1以前のブラウザではインライン要素となっているようでした）*/
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+ 
+/*水平罫線のデフォルトである立体的な罫線を見えなくしています
+（※罫線の色を変える場合は#ccccccの部分を変更）*/
+hr {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+ 
+/*リスト要素のリストスタイルと余白をリセットする
+（※margin:0;は省略しても違いが見られなかったためpadding:0;のみ）*/
+ul {
+    list-style:none;
+    padding:0;
+}
+li {
+    padding:0;
+}
+ 
+/*縦方向の揃え位置を中央揃えに指定しています*/
+input, select {
+    vertical-align:middle;
+}
+
+
+/* ボタン関係リセット */
+.reset {
+    color: black;
+    text-decoration: none;
+    font-family: sans-serif; /* 書体もリセットしています。不要であれば削除を */
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: normal;
+    border: none;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* iOSタップ時の挙動を調整 */
+}
+
+
+
+/* フォントの指定はコピペしていただいて構いません。 */
+
+html{
+	height: 100%;
+}
+
+body {
+	font-family: "Noto Sans Japanese", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", "YuGothic", "メイリオ", "Meiryo", "HGPｺﾞｼｯｸM", "Osaka", "ＭＳ Ｐゴシック", "sans-serif", "Century Gothic", Arial,"M PLUS Rounded 1c",
+    height: 100%;
+    width:100%;
+}
+
+header{
+    position:fixed;
+    width: 100%;
+}
+
+header img{ 
+    height:60px;
+
+}
+
+.logo-image img{
+    margin-left: -5px;
+    margin-top: 5px;
+}
+
+
+
+.site-header {
+	height: 60px;
+	background: #F5F0E6;
+	text-align: center;
+	position: fixed;
+	width: 100%;
+    display: flex;
+
+}
+
+header .hum_menu{
+    position:absolute;
+
+    right:0px;
+    top: 0px;
+}
+
+header .hum_menu a{
+    display:block;
+    height: 20px;
+    width: 40px;
+    padding: 10px 0px;
+    background-color: #eeeaec;
+    text-align: center;
+    
+}
+
+header .hum_menu span{
+    display: block;
+    height: 2px;
+    width: 20px;
+    background-color: #aaa;
+    margin:3px auto;
+}
+
+header ul{
+    display:none;
+    margin-right: 40px;
+}
+
+header ul li{
+    width: 50%;
+    color:#acacac;
+    line-height: 40px;
+    text-align: left;
+    font-size: 12px;
+    text-indent: 8px;
+
+}
+
+header ul li a{
+    display:block;
+    border:1px solid #555;
+    border-width: 1px 1px 0px 0px;
+}
+
+header.open{
+    background-color: #eeeaec;
+}
+
+header.open ul{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+
+.container-all{
+    background-color:#C1E1D2;
+    width: 100%;
+    height: auto !important;
+    height: 100%;
+    position: relative;/*←相対位置*/
+    min-height: 100%;
+}
+
+
+.container{
+    background-color:#C1E1D2;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: #524436; 
+    padding-bottom:100px; /*←footerの高さ*/
+    height: 100%;
+    width:100%;
+}
+
+
+.button-box img{
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.container h1{
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: #524436; 
+    text-align: center;
+    font-feature-settings: "palt";
+    letter-spacing: -2px;
+
+
+}
+
+.box-list{
+    width: auto;
+    padding-top: 100px;
+    margin: 0 auto;
+
+}
+
+.box-list h2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* index.htmlのCSS */
+.description{
+    text-align: center;
+    margin-top: 20px;
+    width: 310px;
+    margin: 0 auto;
+    line-height: 150%;
+    letter-spacing: -1px;
+}
+
+/* ボタンの装飾 */
+
+.button-shadow {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color:#524436;
+    text-align: center;
+    box-sizing: border-box;
+    display: block;
+    max-width: 200px;
+    width: 100%;
+    margin: 0 auto;
+    background: #EF7B51; /* 色変更可能 */
+    font-weight: bold;
+    padding: 13px 10px 10px;
+    border-radius: 30px;
+    border-bottom: 5px solid rgba(0,0,0,0.3);
+}
+.button-shadow.disable {
+    background: #964a2f; /* 色変更可能 */
+}
+
+.button-shadow:hover {
+    animation: 1s flash;
+}
+.button-shadow:active, .button-shadow:focus {
+    border-bottom-width: 0;
+    margin-top: 5px;
+    background: #EF7B51; /* 色変更可能 */
+}
+
+@keyframes flash {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+
+
+.first-list{
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+.box-list{
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;    
+}
+
+.finish{
+    margin: 10px 0px;
+}
+
+
+.fixedmsg{
+    text-align: center;
+}
+
+.msgarea {
+    text-align: center;
+}
+
+.first-list p{
+    margin: 10px 0px;    
+}
+
+.first-list table{
+    width:100%;
+    border-collapse: collapse;
+
+}
+
+.first-list tbody td,.first-list tbody th{
+
+    background: #ebfaf3;
+}
+
+.first-list table tr:nth-child(even) td,.first-list table tr:nth-child(even) th {
+	background: #C1E1D2;
+}
+
+
+
+td.titles{
+    font-weight: 600;
+    width: 10%;
+    padding:10px;
+}
+
+th.need{
+    padding:10px;
+
+
+}
+
+th.precious{
+
+    text-align: center;
+}
+
+
+
+
+footer{
+	height: 80px;
+	background: #F5F0E6;
+	width: 100%;
+    position: fixed;
+    bottom: 0;
+
+}
+
+
+footer .copyright {
+    color:#acacac;
+    font-size: 12px;
+    padding-top: 30px;
+    letter-spacing: 1px;
+    text-align: center;
+    width: 90%
+}
+
+
