@@ -64,7 +64,10 @@ body {
 	font-family: "Noto Sans Japanese", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", "YuGothic", "メイリオ", "Meiryo", "HGPｺﾞｼｯｸM", "Osaka", "ＭＳ Ｐゴシック", sans-serif, "Century Gothic", "Arial","M PLUS Rounded 1c";
 }
 
+.pc { display: block !important; }
+.sp { display: none !important; }
 
+.br-sp { display: none !important; }
 
 .site-header {
 	height: 60px;
@@ -76,18 +79,20 @@ body {
 
 }
 
-header img{ 
+header img{  
     height:50px;
+}   
 
-}
 
 
-.logo {
+.logo img{
+    height:50px;
     margin: 5px,0px,0px,5px;
     padding-top: 5px;
 }
 
-.logoimage{
+.logo-image img{
+    width: 50px;
     padding-top: 10px;
 }
 
@@ -110,6 +115,8 @@ li{
     font-weight: 600;
     color:#524436;
 }
+
+
 
 
 .container-all{
@@ -182,7 +189,7 @@ li{
 
 .first-list tbody td,.first-list tbody th{
 
-    background: #e6f3ed;
+    background: #ebfaf3;
 
 }
 
@@ -223,11 +230,14 @@ margin-right: 10px;
     margin-right:20px;
 }
 
+
+
 .button-box{ margin-top: 30px;}
 
 .button-box img{
     align-items: baseline;
     width:200px;
+    margin-top: 20px;
 }
 
 /* ボタンの装飾 */
@@ -247,6 +257,10 @@ margin-right: 10px;
     border-radius: 30px;
     border-bottom: 5px solid rgba(0,0,0,0.3);
 }
+.button-shadow.disable {
+    background: #964a2f; /* 色変更可能 */
+}
+
 .button-shadow:hover {
     animation: 1s flash;
 }
@@ -353,15 +367,40 @@ padding: 3px 5px 5px;
 }
 
 .fixedmsg{
-    background-color: #fff;
+    height: 100px;
+    width: 145px;
+    /* border: 1px ridge ; */
+    background-image: url(../img/color_logo.png);
+    background-size: cover;
+    /* background-image: url(../img/img\ \(1\).jpg); */
+    /* background-color: #fff; */
+    /* background-color: #fff; */
     position:fixed;
-    top: 300px;
-    left:200px;
+    top: 160px;
+    left:15%;
+}
+.divmsg{
+    /* opacity:0.8; */
+    position:relative;
+    left:75px;
+    top: 9px;
+    height: 5px;
+    width: 51px;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.dandd:hover{
+    cursor: grab;
 }
 
 
 
 /* ---------参考リンク-------------- */
+.finish{
+    margin-top: 13px;
+
+
 
 .banner_text {
     font-family: 'M PLUS Rounded 1c', sans-serif;

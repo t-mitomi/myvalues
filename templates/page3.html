@@ -9,14 +9,20 @@
         <div class="first-list">
             <form action="/page3" id="list100form" method="post">
                 <p>“とても大事” や “大事” の項目をあわせて ちょうど１０個 選んでね！</p>
-                <div id="info">
+                <div id="info topmsg">
                     <h4>インフォ</h4>
                     <p class="msgarea">“とても大事” や “大事” の項目をあわせて ちょうど１０個 選んでね！</p>
                 </div>
+                <div id="info" class="fixedmsg"><div class="divmsg msgarea"></div></div>
                 <table>
                     <thead>
                         <tr>
-                            <th>番号</th><th>価値</th><th>説明</th><th></th>
+                            <th>番号</th>
+                            <th class="titles">価値</th>
+                            <th class="need">説明</th>
+                            <th class="precious">とても大事</th>
+                            <th class="precious">大事</th>
+                            <th class="precious">大事でない</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,20 +31,18 @@
                             <td>{{item['id']}}</td>
                             <td class="titles">{{item['task']}}</td>
                             <td class="need">{{item['explanation']}}</td>
-                            <td>
-                                <label><input type="radio" name="r{{item['id']}}" value="2" {% if item['emphasis']==2 %} checked="checked"{% endif %}>大変重要</label>
-                                <label><input type="radio" name="r{{item['id']}}" value="1" {% if item['emphasis']==1 %} checked="checked"{% endif %}>重要</label>
-                                <label class="last"><input type="radio" name="r{{item['id']}}" value="0" {% if item['emphasis']==0 %} checked="checked"{% endif %}>重要ではない</label>
-                            </td>
+                            <td><label>　<input type="radio" name="r{{item['id']}}" value="2" {% if item['emphasis']==2 %} checked="checked"{% endif %}>　</label></td>
+                            <td><label>　<input type="radio" name="r{{item['id']}}" value="1" {% if item['emphasis']==1 %} checked="checked"{% endif %}>　</label></td>
+                            <td><label>　<input type="radio" name="r{{item['id']}}" value="0" {% if item['emphasis']==0 %} checked="checked"{% endif %}>　</label></td>
                         </tr>
                     {% endfor %}
                 </tbody>
                 </table>
                 <div class ="button-box">
-                    <input type="submit" value="10個に絞り込む" class="reset button-shadow select10">
+                    <input type="submit" value="10個に絞り込む" class="reset button-shadow disable select10">
                 </div>
                 <p>“とても大事” や “大事” の項目をあわせて ちょうど１０個 選んでね！</p>
-                <div id="info">
+                <div id="info bottommsg">
                     <h4>インフォ</h4>
                     <p class="msgarea">“とても大事” や “大事” の項目をあわせて ちょうど１０個 選んでね！</p>
                 </div>
@@ -60,9 +64,9 @@ function select10(){
             select_count+=1;
         }
         if(select_count==10){
-            $(".select10").prop('disabled', false);
+            $(".select10").prop('disabled', false).removeClass('disable');
         }else{
-            $(".select10").prop('disabled', true);
+            $(".select10").prop('disabled', true).addClass('disable')
         }
         console.log(select_count+" 個選択中 " );
         $(".msgarea").text("現在 "+select_count+" 個選択中 ")
