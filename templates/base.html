@@ -16,13 +16,6 @@
 <script src="../static/js/common.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 
-<!-- drawer.css → -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/css/drawer.min.css">
-
-<!-- jquery & iScroll →-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js"></script>
-<!-- drawer.js → -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js"></script>
 
 <!-- jQuery UI -->
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -35,6 +28,7 @@
 </head>
 <body>
     <div class="container-all">
+
         <header class="site-header">
             <div class="logo">
                 <img src="../static/img/name.png" alt="">
@@ -45,26 +39,27 @@
             </div>
 
             <div class="menu">
+                <!-- ハンバーガーメニュー -->
+                <p class="btn-gNav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </p>
 
-    <!-- スマホ用ハンバーガーメニューの記述（JSを使わないと動きません） -->
-            <div class="hum_menu">
-                <a href="javascript:void(0);">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </a>
-            </div>
-            <!-- ここまでハンバーガーメニュー -->
+
 
             
-            <nav>
-                <ul>
-                    <li> <button type=“button” onclick="location.href='index'" class="reset top-menu">トップに戻る</button></li>
-                    <li><button type=“button” onclick="location.href='page7'" class="reset top-menu">参考サイト</button></li>
-                </ul>
-            </nav>
+                <nav>
+                    <ul class="sp-menu">
+                        <li class="pc" > <button type=“button” onclick="location.href='index'" class="reset top-menu " >トップに戻る</button></li>
+                        <li class="sp" > <button type=“button” onclick="location.href='index'" class="reset" ><img src="../static/img/house_icon.png" alt=""></button></li>
+                        <li class="pc" ><button type=“button” onclick="location.href='page7'" class="reset top-menu " >参考サイト</button></li>
+                        <li class="sp" ><button type=“button” onclick="location.href='page7'" class="reset" ><img src="../static/img/list_icon.png" alt=""></button></li>
+                    </ul>
+                </nav>
             </div>
         </header>
+
 
 
 
@@ -75,5 +70,6 @@
     <p class="copyright">Copyright &copy; TEAM STOP!ROADKILL all rights reserved.</p>
     </footer>
     </div>
+
 </body>
 </html>

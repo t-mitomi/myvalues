@@ -12,20 +12,20 @@ body {
     line-height:1;
     margin:0;
 }
- 
+
 /*ブロックレベル要素の余白をリセットしています
 （※padding:0;は省略しても違いが見られなかったためmargin:0;のみ）*/
 h1, h2, h3, h4, h5, h6, p {
     margin: 0;
 }
- 
+
 /*HTML5での新規追加要素のデフォルトをブロック要素へ変更しています
 （※Android2.1以前のブラウザではインライン要素となっているようでした）*/
 article,aside,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section {
     display:block;
 }
- 
+
 /*水平罫線のデフォルトである立体的な罫線を見えなくしています
 （※罫線の色を変える場合は#ccccccの部分を変更）*/
 hr {
@@ -36,7 +36,7 @@ hr {
     margin:1em 0;
     padding:0;
 }
- 
+
 /*リスト要素のリストスタイルと余白をリセットする
 （※margin:0;は省略しても違いが見られなかったためpadding:0;のみ）*/
 ul {
@@ -46,7 +46,7 @@ ul {
 li {
     padding:0;
 }
- 
+
 /*縦方向の揃え位置を中央揃えに指定しています*/
 input, select {
     vertical-align:middle;
@@ -76,13 +76,32 @@ input, select {
 /* フォントの指定はコピペしていただいて構いません。 */
 
 html{
-	height: 100%;
+height: 100%;
+
 }
 
 body {
 	font-family: "Noto Sans Japanese", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", "YuGothic", "メイリオ", "Meiryo", "HGPｺﾞｼｯｸM", "Osaka", "ＭＳ Ｐゴシック", "sans-serif", "Century Gothic", Arial,"M PLUS Rounded 1c",
     height: 100%;
     width:100%;
+}
+
+
+.pc { display: none !important; }
+.sp { display: block !important; }
+
+.menu{
+    margin: 0 0 0 auto;
+}
+
+.sp-menu{
+    display: flex;
+    justify-content: flex-end; 
+}
+
+.sp img{
+    height:32px;
+    display: inline-block;
 }
 
 header{
@@ -112,60 +131,7 @@ header img{
 
 }
 
-header .hum_menu{
-    position:absolute;
 
-    right:0px;
-    top: 0px;
-}
-
-header .hum_menu a{
-    display:block;
-    height: 20px;
-    width: 40px;
-    padding: 10px 0px;
-    background-color: #eeeaec;
-    text-align: center;
-    
-}
-
-header .hum_menu span{
-    display: block;
-    height: 2px;
-    width: 20px;
-    background-color: #aaa;
-    margin:3px auto;
-}
-
-header ul{
-    display:none;
-    margin-right: 40px;
-}
-
-header ul li{
-    width: 50%;
-    color:#acacac;
-    line-height: 40px;
-    text-align: left;
-    font-size: 12px;
-    text-indent: 8px;
-
-}
-
-header ul li a{
-    display:block;
-    border:1px solid #555;
-    border-width: 1px 1px 0px 0px;
-}
-
-header.open{
-    background-color: #eeeaec;
-}
-
-header.open ul{
-    display:flex;
-    flex-wrap: wrap;
-}
 
 
 .container-all{
@@ -175,6 +141,7 @@ header.open ul{
     height: 100%;
     position: relative;/*←相対位置*/
     min-height: 100%;
+    padding-bottom: 100px;
 }
 
 
@@ -182,7 +149,8 @@ header.open ul{
     background-color:#C1E1D2;
     font-family: 'M PLUS Rounded 1c', sans-serif;
     color: #524436; 
-    padding-bottom:100px; /*←footerの高さ*/
+
+
     height: 100%;
     width:100%;
 }
@@ -326,6 +294,36 @@ th.precious{
 
     text-align: center;
 }
+
+
+.banner_text {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: #524436;
+    padding-top: 10px;
+}
+
+.top-banner{
+	display: flex;
+    flex-direction: column;
+	padding-top: 50px;
+}
+.top-banner button {
+	width: calc(100%/4);
+	padding:0 5px;
+	box-sizing:border-box;
+}
+.top-banner a img {
+	max-width:100%; 
+	height: auto; 
+	
+}
+
+.banner_img{
+    width: 70px;
+    height: 50px;
+}
+
+
 
 
 
