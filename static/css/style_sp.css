@@ -349,7 +349,9 @@ th.precious{
 }
 
 
-
+.completion_logocharacter img{
+    width: 300px;
+}
 
 
 
@@ -369,7 +371,7 @@ footer .copyright {
     padding-top: 30px;
     letter-spacing: 1px;
     text-align: center;
-    width: 90%
+    width: 100%
 }
 
 .pc_only{
