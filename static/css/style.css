@@ -67,6 +67,8 @@ body {
 .pc { display: block !important; }
 .sp { display: none !important; }
 
+.br-sp { display: none !important; }
+
 .site-header {
 	height: 60px;
 	background: #F5F0E6;
