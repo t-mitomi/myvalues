@@ -3,13 +3,14 @@
 <div class="container">
     <div class="box-list">
         <h1 class="ranking">選んだ10個の価値観<br class="br-sp">の中でランキングを<br class="br-sp">つけてみよう！</h1>
-        <h3 class="finish">ドラック＆ドロップで<br class="br-sp">大事な順に入れ替えてみよう</h3>
+        <h3 class="finish pc_only">ドラック＆ドロップで<br class="br-sp">大事な順に入れ替えてみよう</h3>
+        <h3 class="finish smart_only">上下移動ボタン（△上へ、▽下へ）で<br class="br-sp">大事な順に入れ替えてみよう</h3>
         <div class="first-list">
             <form action="/page4" id="list100form" method="post">
                 <table>
                     <thead>
                         <tr>
-                            <th>順位</th><th>項目</th><th>説明</th>
+                            <th>順位</th><th>項目</th><th>説明</th><th></th>
                         </tr>
                     </thead>
                     <tbody id="sortdata">
@@ -17,7 +18,8 @@
                         <tr class="value_container dandd">
                             <th name="num_data" class="order">{{item['best']}}</th>
                             <td class="titles">{{item['value']}}</td>
-                            <td class="need">{{item['explanation']}}</td>
+                            <td class="smart need">{{item['explanation']}}</td>
+                            <td class="smart_only"><a href="#" class="reset rowup">　△　</a><a href="#" class="reset rowdown">　▽　</a></td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -25,15 +27,26 @@
                 <div class ="button-box">
                     <input type="button" value="リスト完成！" class="reset button-shadow ranking_decision">
                 </div>
+                <div style="margin-top: 10px;">
+                    <div class="completion_twitter">
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="わたしのパーソナルバリューリスト" data-show-count="false">Tweet</a>
+                            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                </div>
+                <div class="completion_logocharacter"><img src="../static/img/kansei.png" alt="stop!loadkill_character"></div>
             </form>
         </div>
     </div>
 </div>
 <script>
+    // $(".completion_twitter").fadeOut("fast");
+    $(".completion_logocharacter").hide();
     $(".button-box").click(function() {
         $(".precious.reset button-shadow,.updown").hide();
         $(".ranking").text("あなたのパーソナルバリューリスト");
         $(".finish").text("これがあなたのパーソナルバリューリストです！");
+        // $(".completion_twitter").fadeIn("first");
+        $(".completion_logocharacter").fadeIn();
     })
 </script>
 {% endblock %}

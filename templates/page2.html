@@ -10,10 +10,6 @@
             <form action="/page2" id="list100form" method="post">
                 <p>“とても大事” や “大事” の項目を あわせて<br class="br-sp">１０個以上選んでね！</p>
                 <p>とても大事=◎ 大事=◯ 大事でない=×</p>
-                <div id="info topmsg">
-                    <h4>インフォ</h4>
-                    <p class="msgarea">“とても大事” や “大事” の項目を あわせて １０個以上選んでね！</p>
-                </div>
                 <div id="info" class="fixedmsg"><div class="divmsg msgarea"></div>
                 </div>
                 <table>
@@ -50,11 +46,7 @@
                 <input type="submit" value="絞り込む" id="selected" name="selected" class="reset button-shadow disable">
                 </div>
             </form>
-            <div id="info bottommsg">
-                <h4>インフォ</h4>
-                <p class="msgarea">“とても大事” や “大事” の項目を あわせて １０個以上選んでね！</p>
-            </div>
-        </div>  
+        </div>
     </div>
 </div>
 <script>
@@ -73,8 +65,7 @@
             }else{
                 $("#selected").prop('disabled', true).addClass('disable');
             }
-            console.log(select_count+" 個選択中 " );
-            $(".msgarea").text("現在 "+select_count+" 個選択 中")
+            $(".msgarea").html('現在<br><span style="font-size:x-large;">'+select_count+"</span> 個<br>選択中")
         });
         return false;
     }
