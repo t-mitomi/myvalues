@@ -9,6 +9,7 @@
         <div class="first-list">
             <form action="/page3" id="list100form" method="post">
                 <p>“とても大事” や “大事” の項目をあわせて ちょうど１０個 選んでね！</p>
+                <p>とても大事=◎ 大事=◯ 大事でない=×</p>
                 <div id="info" class="fixedmsg"><div class="divmsg msgarea"></div></div>
                 <table>
                     <thead>
@@ -16,9 +17,9 @@
                             <th>番号</th>
                             <th class="titles">価値</th>
                             <th class="need">説明</th>
-                            <th class="precious">とても大事</th>
-                            <th class="precious">大事</th>
-                            <th class="precious">大事でない</th>
+                            <th class="precious">◎</th>
+                            <th class="precious">○</th>
+                            <th class="precious">×</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,9 +28,9 @@
                             <td>{{item['id']}}</td>
                             <td class="titles">{{item['task']}}</td>
                             <td class="need">{{item['explanation']}}</td>
-                            <td><label>　<input type="radio" name="r{{item['id']}}" value="2" {% if item['emphasis']==2 %} checked="checked"{% endif %}>　</label></td>
-                            <td><label>　<input type="radio" name="r{{item['id']}}" value="1" {% if item['emphasis']==1 %} checked="checked"{% endif %}>　</label></td>
-                            <td><label>　<input type="radio" name="r{{item['id']}}" value="0" {% if item['emphasis']==0 %} checked="checked"{% endif %}>　</label></td>
+                            <td><label> <input type="radio" name="r{{item['id']}}" value="2" {% if item['emphasis']==2 %} checked="checked"{% endif %}></label></td>
+                            <td><label><input type="radio" name="r{{item['id']}}" value="1" {% if item['emphasis']==1 %} checked="checked"{% endif %}></label></td>
+                            <td><label><input type="radio" name="r{{item['id']}}" value="0" {% if item['emphasis']==0 %} checked="checked"{% endif %}></label></td>
                         </tr>
                     {% endfor %}
                 </tbody>
