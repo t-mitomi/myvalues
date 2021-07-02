@@ -286,6 +286,7 @@ header img{
 .first-list table{
     width:100%;
     border-collapse: collapse;
+    border-spacing: 0px;
 
 }
 
@@ -310,7 +311,7 @@ td.titles{
 
 th.need{
     padding:10px;
-    width: 55%;
+
 
 
 }
@@ -318,6 +319,8 @@ th.need{
 th.precious{
 
     text-align: center;
+    font-size:x-large;
+    width: 10%;
 }
 
 

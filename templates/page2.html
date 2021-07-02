@@ -19,7 +19,7 @@
                             <th class="titles">価値</th>
                             <th class="need">説明</th>
                             <th class="precious"> ◎</th>
-                            <th class="precious"> ◯</th>
+                            <th class="precious"> ○</th>
                             <th class="precious"> ×</th>
                         </tr>
                     </thead>
@@ -30,13 +30,13 @@
                             <td class="titles">{{item['task']}}</td>
                             <td class="need">{{item['explanation']}}</td>
                             <td>
-                                <label>　<input type="radio" name="r{{item['id']}}" value="2">　</label>
+                                <label> <input type="radio" name="r{{item['id']}}" value="2"> </label>
                             </td>
                             <td>
-                                <label>　<input type="radio" name="r{{item['id']}}" value="1">　</label>
+                                <label> <input type="radio" name="r{{item['id']}}" value="1"> </label>
                             </td>
                             <td>
-                                <label>　<input type="radio" name="r{{item['id']}}" value="0" checked>　</label>
+                                <label> <input type="radio" name="r{{item['id']}}" value="0" checked> </label>
                             </td>
                         </tr>
                     {% endfor %}
