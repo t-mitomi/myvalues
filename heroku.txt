@@ -1,0 +1,21 @@
+herokuに新規登録
+Gitの設定。
+#SUNABACO テキスト
+docs.google.com/document/d/10Qe9sB3aZcTvXTDgWOyOBl1xBqh7LOkFtia_-K1YAPE/edit?
+卒業制作フォルダをターミナルで 以下macはpip＝＞pip3
+pip install gunicorn
+pip freeze
+＃gunicorn==20.1.0等
+https://devcenter.heroku.com/ja/articles/heroku-cli#download-and-install
+からHeroku CLIをダウンロードしてインストール
+すると、コマンドラインでherokuを操作できる。
+heroku login
+として、qで終了せずに、Enterキー
+HerokuCLIにログインします。ログインするボタンが
+ブラウザにブラウザに！表示される。
+Procfileを作成する
+中はgunicorn ファイル名:アプリ名 --log-file=-
+web: gunicorn app:app --log-file=-
+
+
+

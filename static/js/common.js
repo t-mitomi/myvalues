@@ -60,7 +60,7 @@ $(function(){
             }else{
                 $("#selected").prop('disabled', true);
             }
-            console.log(select_count+" 件選択中 " );
+            // console.log(select_count+" 件選択中 " );
             $("#msgarea").text(select_count+" 件選択中 ")
         });
     });
@@ -79,7 +79,7 @@ $(function(){
             }else{
                 $(".select10").prop('disabled', true);
             }
-            console.log(select_count+" 件選択中 " );
+            // console.log(select_count+" 件選択中 " );
             $("#msgarea").text(select_count+" 件選択中 ")
         });
     });
@@ -96,9 +96,9 @@ $(function(){
             }else{
                 $(".ranking_decision").prop('disabled', true);
             }
-            console.log(select_count+" 件選択中 " );
+            // console.log(select_count+" 件選択中 " );
             $("#msgarea").text(select_count+" 件選択中 ")
         });
     });
 
-});
+}); 
