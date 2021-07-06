@@ -1,0 +1,59 @@
+0.
+herokuに新規登録
+https://jp.heroku.com/
+
+1.
+Gitの設定。
+
+2.
+#SUNABACO テキスト
+docs.google.com/document/d/10Qe9sB3aZcTvXTDgWOyOBl1xBqh7LOkFtia_-K1YAPE/edit?
+
+3.
+卒業制作フォルダをターミナルで 以下macはpip＝＞pip3
+pip install gunicorn
+pip freeze
+＃gunicorn==20.1.0等
+
+4.
+https://devcenter.heroku.com/ja/articles/heroku-cli#download-and-install
+(HEROKU をコマンド経由で操作するためのアプリケーション)
+からHeroku CLIをダウンロードしてインストール
+すると、コマンドラインでherokuを操作できる。
+ただし、macOSの人は
+brew tap heroku/brew && brew install heroku
+?
+windowsの人は
+heroku login
+heroku: Press any key to open up the browser to login or q to exit:とメッセージ。
+qで終了せずに、Enterキーなど。
+VScodeの場合は再起動しないとログインできないこともある。
+HerokuCLIにログインしようとすると、ログインするボタンがブラウザにブラウザに！表示される。
+成功すると Logged In とブラウザ。
+
+5.
+Procfileを作成する（app.pyと同階層に大文字のPから）
+中はgunicorn ファイル名:アプリ名 --log-file=-
+web: gunicorn app:app --log-file=-
+
+6.
+「requirements.txt」というファイルを作成
+pip freeze > requirements.txt
+「requirements.txt」というファイル名は Python で世界的にパッケージ管理のファイル名として使われている名称
+
+7.
+herokuのログイン画面で、
+
+
+
+
+
+
+
+
+
+
+
+
+
+
