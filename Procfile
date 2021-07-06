@@ -1,1 +1,1 @@
-gunicorn ファイル名:アプリ名 --log-file=-
+web: gunicorn app:app --log-file=-
