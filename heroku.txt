@@ -15,6 +15,8 @@ terminalで
 pip install gunicorn
 pip freeze
 ＃gunicorn==20.1.0等
+windowsでなければ
+gunicorm app:appでhttp://127.0.0.1:8000/へ
 
 4.
 https://devcenter.heroku.com/ja/articles/heroku-cli#download-and-install
@@ -63,8 +65,22 @@ origin  https://github.com/t-mitomi/myvalues.git (push)
 と、herokuとoriginが２つずつ
 git add .
 git commit -m "remoto heroku"
-
-
+git push heroku master
+又は
+git push heroku main
+?
+To https://git.heroku.com/myvaluelist.git
+ ! [remote rejected] master -> master (pre-receive hook declined)
+error: failed to push some refs to 'https://git.heroku.com/myvaluelist.git'
+とエラーがでたら、https://qiita.com/teipoi/items/c0f39ff14fb7bd60ebf2
+結論
+% heroku stack:set heroku-18 -a アプリケーション名
+を実行してから再度git push heroku masterすると解決しました。
+なので
+terminalで
+heroku stack:set heroku-18 -a app
+からの再度git push heroku master
+2021年1月にHerokuのstackと呼ばれるサービスのverが18→20に更新された
 
 
 
