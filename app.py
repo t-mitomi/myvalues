@@ -549,7 +549,8 @@ def list4():
 
 # ここの下もおまじない（いじるな！）
 if __name__=='__main__':
-    app.run(debug=True)
+    # app.run(debug=True)
+    app.run()
 
 # debug=True とすると、記述ミスは丁寧に英語表示される！！
 # 実行方法は３つ コマンドで python ファイル名.py macはpython3 ファイル名.py
