@@ -13,19 +13,20 @@ docs.google.com/document/d/10Qe9sB3aZcTvXTDgWOyOBl1xBqh7LOkFtia_-K1YAPE/edit?
 卒業制作フォルダをターミナルで 以下macはpip＝＞pip3
 terminalで
 pip install gunicorn
+// pip install --upgrade --user pip
 pip freeze
 ＃gunicorn==20.1.0等
-windowsでなければ
-gunicorm app:appでhttp://127.0.0.1:8000/へ
+インストールに成功すると gunicorn というコマンドが使えるようになります。
 
-4.
+4.HEROKUへ登録
+macOSなら
+brew tap heroku/brew && brew install heroku
+gunicorm app:appでhttp://127.0.0.1:8000/へ
+windowsなら
 https://devcenter.heroku.com/ja/articles/heroku-cli#download-and-install
 (HEROKU をコマンド経由で操作するためのアプリケーション)
 からHeroku CLIをダウンロードしてインストール
 すると、コマンドラインでherokuを操作できる。
-ただし、macOSの人は
-brew tap heroku/brew && brew install heroku
-?
 windowsの人は
 terminalで
 heroku login
@@ -33,11 +34,13 @@ heroku: Press any key to open up the browser to login or q to exit:とメッセ�
 qで終了せずに、Enterキーなど。
 VScodeの場合は再起動しないとログインできないこともある。
 HerokuCLIにログインしようとすると、ログインするボタンがブラウザにブラウザに！表示される。
-成功すると Logged In とブラウザ。
+VScodeでログインできないときはVScodeを再起動すると、上手くいく。
+成功すると Logged In とブラウザ。OKすると、
+ターミナルでログイン済みとなっている。Logging in... done
 
-5.
+5.HEROKUにアップするために必要なファイル作成
 Procfileを作成する（app.pyと同階層に大文字のPから）
-中はgunicorn ファイル名:アプリ名 --log-file=-
+中はgunicorn ファイル名(app.py):アプリ名(app=Flask(__name__)) --log-file=-
 web: gunicorn app:app --log-file=-
 
 6.
